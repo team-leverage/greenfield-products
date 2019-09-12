@@ -1,5 +1,5 @@
 const fs = require('fs');
-const lineReader = require('line-reader');
+const lineByLineReader = require('line-by-line');
 const path = require('path');
 
 const Pool = require('pg').Pool;
@@ -11,15 +11,14 @@ const pool = new Pool({
   port: 5432
 });
 
+
+
 const loadProducts = (req, res) => {
-  console.log('Reached here');
-  var numLines = 0;
-  lineReader.eachLine(`./data/product.csv`, (line) => {
-    if (numLines > 10) { return; }
+  const productCsv = new lineByLineReader(`./data/product.csv`);
+  productCsv.on('line', (line) => {
     console.log(line);
-    numLines++;
   });
-  // fs.readFile()
+  productCsv.on('end', () => {});
 }
 
 // const exampleInsert = (req, res) => {
