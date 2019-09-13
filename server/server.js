@@ -7,7 +7,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/', db.loadProducts);
+db.loadProducts();
+
+// app.get('/', db.loadProducts);
 
 // app.get('/', (req, res) => {
 //   res.json({info: 'Node.js, Express, and PostgreSQL API'})

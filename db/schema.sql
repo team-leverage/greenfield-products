@@ -15,7 +15,6 @@ CREATE TABLE products (
   category_id int REFERENCES categories(category_id),
   default_price numeric(12, 2) DEFAULT 0.00,
   CONSTRAINT unique_products UNIQUE (product_name, slogan, product_description)
-  -- FOREIGN KEY (category_id) 
 );
 
 CREATE TABLE feature_names (
@@ -28,7 +27,6 @@ CREATE TABLE feature_values (
   feature_name_id int REFERENCES feature_names(feature_name_id),
   feature_value varchar(50),
   CONSTRAINT unique_features UNIQUE (feature_name_id, feature_value)
-  -- FOREIGN KEY (feature_name_id) 
 );
 
 CREATE TABLE product_feature_join (
@@ -36,8 +34,6 @@ CREATE TABLE product_feature_join (
   product_id int REFERENCES products(product_id) ,
   feature_value_id int REFERENCES feature_values(feature_value_id),
   CONSTRAINT unique_features_product UNIQUE (product_id, feature_value_id)
-  -- FOREIGN KEY (feature_value_id) ,
-  -- FOREIGN KEY (product_id) 
 );
 
 CREATE TABLE related_products (
@@ -45,8 +41,6 @@ CREATE TABLE related_products (
   product_id int REFERENCES products(product_id),
   related_product_id int REFERENCES products(product_id),
   CONSTRAINT unique_related_products UNIQUE (product_id, related_product_id)
-  -- FOREIGN KEY (product_id) ,
-  -- FOREIGN KEY (related_product_id) 
 );
 
 CREATE TABLE styles (
@@ -57,16 +51,19 @@ CREATE TABLE styles (
   is_default bit,
   product_id int REFERENCES products(product_id),
   CONSTRAINT unique_styles UNIQUE (style_name, product_id)
-  -- FOREIGN KEY (product_id) 
 );
 
 CREATE TABLE sizes (
+  size_id serial PRIMARY KEY,
+  size_name varchar(20) UNIQUE
+);
+
+CREATE TABLE skus (
   sku_id serial PRIMARY KEY,
   style_id int REFERENCES styles(style_id),
-  size_name varchar(10),
+  size_id int REFERENCES sizes(size_id),
   quantity int DEFAULT 0,
-  CONSTRAINT unique_sizes UNIQUE (size_name, style_id)
-  -- FOREIGN KEY (style_id) 
+  CONSTRAINT unique_skus UNIQUE (size_id, style_id)
 );
 
 CREATE TABLE photos (
@@ -75,5 +72,4 @@ CREATE TABLE photos (
   main_url varchar(1500),
   thumbnail_url varchar(1500),
   CONSTRAINT unique_photos UNIQUE (style_id, main_url, thumbnail_url)
-  -- FOREIGN KEY (style_id) 
 );
