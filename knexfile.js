@@ -12,6 +12,10 @@ module.exports = {
       password: 'face468a'
     },
     useNullAsDefault: true,
+    pool: {
+      min: 2,
+      max: 100
+    },
     migrations: {
       directory: './db/migrations'
     },
