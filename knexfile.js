@@ -22,38 +22,38 @@ module.exports = {
     seeds: {
       directory: './db/seeds/dev'
     }
-  },
+  // },
 
-  staging: {
-    client: 'postgresql',
-    connection: {
-      database: 'greenfield',
-      user:     'han',
-      password: 'face468a'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
-  },
+  // staging: {
+  //   client: 'postgresql',
+  //   connection: {
+  //     database: 'greenfield',
+  //     user:     'han',
+  //     password: 'face468a'
+  //   },
+  //   pool: {
+  //     min: 2,
+  //     max: 10
+  //   },
+  //   migrations: {
+  //     tableName: 'knex_migrations'
+  //   }
+  // },
 
-  production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
+  // production: {
+  //   client: 'postgresql',
+  //   connection: {
+  //     database: 'my_db',
+  //     user:     'username',
+  //     password: 'password'
+  //   },
+  //   pool: {
+  //     min: 2,
+  //     max: 10
+  //   },
+  //   migrations: {
+  //     tableName: 'knex_migrations'
+  //   }
   }
 
 };

@@ -60,10 +60,10 @@ var insertFeature = function(knex, url, hasHeader = true) {
             })
           })
           .catch((err) => {
-            if (!isCheckUniqueError(err)) { // if the error is NOT related to unique contraints for products
-              console.log(`PROBLEM LINE FOR FEATURE-JOIN ${thisLine}: ${line}`, err.message);
-            } else {
+            if (isCheckUniqueError(err)) { // if the error is related to unique contraints for products
               numUniqueLines++;
+            } else {
+              console.log(`PROBLEM LINE FOR FEATURE-JOIN ${thisLine}: ${line}`, err.message);
             }
           })
           .then(Promise.resolve())
