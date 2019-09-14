@@ -1,5 +1,4 @@
 const lineByLine = require('line-by-line');
-const fs = require('fs');
 const NULLPLACEHOLDER = 'NULLNULL';
 const url = `./data/Features/features.part00.csv`;
 
@@ -7,7 +6,7 @@ var isCheckUniqueError = function (err) {
   return err.message.includes('duplicate');
 }
 
-var insertFeature = function(knex, hasHeader = true) {
+var insertFeature = function(knex, url, hasHeader = true) {
   let isFirstLine = true, thisLine = 1, numUniqueLines = 0;
   return new Promise(function () {
     let rl = new lineByLine(url);
@@ -96,7 +95,7 @@ exports.seed = function(knex) {
     .then(() => {
       return knex('feature_names').del();
     })
-    .then(() => {return insertFeature(knex, false)})
+    .then(() => {return insertFeature(knex, url, false)})
     .then(() => {
       console.log('Destroying connection pools');
       knex.destroy();

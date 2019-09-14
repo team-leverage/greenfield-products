@@ -1,29 +1,17 @@
 const lineByLine = require('line-by-line');
-const fs = require('fs');
 const url = `./data/Products/product.csv`;
 
 var isCheckUniqueError = function (err) {
   return err.message.includes('duplicate');
 }
 
-// var multipleTries = function (arg, func, maxTries = 7, thisTry = 0) {
-//   try {
-//     return func(arg);
-//   } catch(err) {
-//     if (thisTry === maxTries) {
-//       throw err;
-//     }
-//     multipleTries(arg, func, maxTries, thisTry+1)
-//   }
-// };
-
-var insertProduct = function(knex) {
+var insertProduct = function(knex, url, hasHeader = true) {
   let isFirstLine = true, thisLine = 1, numUniqueLines = 0;
   return new Promise(function () {
     let rl = new lineByLine(url);
     // beginning of rl.on('line') block
     rl.on('line', function(line) {
-      if (isFirstLine) {
+      if (isFirstLine && hasHeader) {
         console.log('Starting To Load CSV into Database');
         isFirstLine = false;
         return;
@@ -78,7 +66,7 @@ exports.seed = function(knex) {
     .then(() => {
       return knex('categories').del();
     })
-    .then(() => {return insertProduct(knex)})
+    .then(() => {return insertProduct(knex, url, true)})
     .then(() => {
       console.log('Destroying connection pools');
       knex.destroy();
