@@ -1,6 +1,6 @@
 const lineByLine = require('line-by-line');
 const fs = require('fs');
-const url = `./data/product.csv`;
+const url = `./data/Products/product.csv`;
 
 var isCheckUniqueError = function (err) {
   return err.message.includes('duplicate');
@@ -18,7 +18,7 @@ var isCheckUniqueError = function (err) {
 // };
 
 var insertProduct = function(knex) {
-  let isFirstLine = true, thisLine = 1;
+  let isFirstLine = true, thisLine = 1, numUniqueLines = 0;
   return new Promise(function () {
     let rl = new lineByLine(url);
     // beginning of rl.on('line') block
@@ -52,7 +52,7 @@ var insertProduct = function(knex) {
           })
           .catch((err) => {
             if (isCheckUniqueError(err)) { // if the error is related to unique contraints for products
-              console.log(`DUPLICATE PRODUCT ${name}`);
+              numUniqueLines++;
             } else{
               console.log(`PROBLEM LINE FOR PRODUCTS ${thisLine}: ${line}`, err);
             }
@@ -60,7 +60,7 @@ var insertProduct = function(knex) {
           .then(Promise.resolve())
       ])
       .then(() => {
-        if (thisLine % 25000 === 0) { console.log(`Finished ${thisLine} items!`); }
+        if (thisLine % 25000 === 0) { console.log(`Finished ${thisLine} items!  So far ${numUniqueLines} duplicates.`); }
         thisLine++;
       })
       .catch(((err) => {console.log(err)}))
@@ -68,7 +68,6 @@ var insertProduct = function(knex) {
     // end of rl.on('line') block
     rl.on('end', () => {
       console.log('DONE!!');
-      rl.close();
     });
   })
 }
@@ -80,4 +79,8 @@ exports.seed = function(knex) {
       return knex('categories').del();
     })
     .then(() => {return insertProduct(knex)})
+    .then(() => {
+      console.log('Destroying connection pools');
+      knex.destroy();
+    })
 };

@@ -1,14 +1,14 @@
 const lineByLine = require('line-by-line');
 const fs = require('fs');
 const NULLPLACEHOLDER = 'NULLNULL';
-const url = `./data/Features/features.part04.csv`;
+const url = `./data/Features/features.part00.csv`;
 
 var isCheckUniqueError = function (err) {
   return err.message.includes('duplicate');
 }
 
 var insertFeature = function(knex, hasHeader = true) {
-  let isFirstLine = true, thisLine = 1;
+  let isFirstLine = true, thisLine = 1, numUniqueLines = 0;
   return new Promise(function () {
     let rl = new lineByLine(url);
     // beginning of rl.on('line') block
@@ -37,15 +37,15 @@ var insertFeature = function(knex, hasHeader = true) {
           .then((feature_name_id) => {
             feature_name_id_closure = Number(feature_name_id);
             return knex('feature_values').insert({
-              feature_name_id: Number(feature_name_id),
+              feature_name_id: feature_name_id_closure,
               feature_value: feature_value
             }, 'feature_value_id')
           })
           .catch((err) => {
             if (isCheckUniqueError(err)) { // if value and feature name exists, select from existing
               return knex('feature_values').where({
-                feature_value: feature_value,
-                feature_name_id: feature_name_id_closure
+                feature_name_id: feature_name_id_closure,
+                feature_value: feature_value
               }).select('feature_value_id').then((selectObj) => {
                 return selectObj[0]['feature_value_id'];
               })
@@ -63,12 +63,14 @@ var insertFeature = function(knex, hasHeader = true) {
           .catch((err) => {
             if (!isCheckUniqueError(err)) { // if the error is NOT related to unique contraints for products
               console.log(`PROBLEM LINE FOR FEATURE-JOIN ${thisLine}: ${line}`, err.message);
+            } else {
+              numUniqueLines++;
             }
           })
           .then(Promise.resolve())
       ])
       .then(() => {
-        if (thisLine % 25000 === 0) { console.log(`Finished ${thisLine} items!`); }
+        if (thisLine % 25000 === 0) { console.log(`Finished ${thisLine} items! So far ${numUniqueLines} duplicates.`); }
         thisLine++;
       })
       .catch(((err) => {console.log(err)}))
@@ -82,14 +84,21 @@ var insertFeature = function(knex, hasHeader = true) {
 }
 
 exports.seed = function(knex) {
-  // Deletes ALL existing entries
-  return insertFeature(knex, false)
-  // return knex('product_feature_join').del()
-  //   .then(() => {
-  //     return knex('feature_values').del();
-  //   })
-  //   .then(() => {
-  //     return knex('feature_names').del();
-  //   })
-  //   .then(() => {return insertFeature(knex, false)})
+  // return insertFeature(knex, false)
+  // .then(() => {
+  //   console.log('Destroying connection pools');
+  //   knex.destroy();
+  // })
+  return knex('product_feature_join').del()
+    .then(() => {
+      return knex('feature_values').del();
+    })
+    .then(() => {
+      return knex('feature_names').del();
+    })
+    .then(() => {return insertFeature(knex, false)})
+    .then(() => {
+      console.log('Destroying connection pools');
+      knex.destroy();
+    })
 };
