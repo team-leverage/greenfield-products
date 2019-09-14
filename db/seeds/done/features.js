@@ -7,14 +7,16 @@ var isCheckUniqueError = function (err) {
 }
 
 var insertFeature = function(knex, url, hasHeader = true) {
-  let isFirstLine = true, thisLine = 1, numUniqueLines = 0;
+  let isFirstLine = true, thisReadLine = 0, thisEndLine, thisQueryLine = 1, numDuplicateLines = 0;
   return new Promise(function () {
     let rl = new lineByLine(url);
     // beginning of rl.on('line') block
     rl.on('line', function(line) {
+      thisReadLine++;
       if (isFirstLine && hasHeader) {
         console.log('Starting To Load CSV into Database');
         isFirstLine = false;
+        thisQueryLine++;
         return;
       }
       let [id, product_id, feature_name, feature_value] = JSON.parse(`[${line}]`);
@@ -29,7 +31,7 @@ var insertFeature = function(knex, url, hasHeader = true) {
                 return selectObj[0]['feature_name_id'];
               })
             } else {  // if the error is another error
-              console.log(`PROBLEM LINE FOR FEATURE-NAMES ${thisLine}: ${line}`, err)
+              console.log(`PROBLEM LINE FOR FEATURE-NAMES ${thisQueryLine}: ${line}`, err)
             }
           })
           // insert into 2nd table:  feature_values
@@ -49,7 +51,7 @@ var insertFeature = function(knex, url, hasHeader = true) {
                 return selectObj[0]['feature_value_id'];
               })
             } else{
-              console.log(`PROBLEM LINE FOR FEATURE-VALUE ${thisLine}: ${line}`, err);
+              console.log(`PROBLEM LINE FOR FEATURE-VALUE ${thisQueryLine}: ${line}`, err);
             }
           })
           // insert into 3rd table:  product_feature_join
@@ -61,22 +63,29 @@ var insertFeature = function(knex, url, hasHeader = true) {
           })
           .catch((err) => {
             if (isCheckUniqueError(err)) { // if the error is related to unique contraints for products
-              numUniqueLines++;
+              numDuplicateLines++;
             } else {
-              console.log(`PROBLEM LINE FOR FEATURE-JOIN ${thisLine}: ${line}`, err.message);
+              console.log(`PROBLEM LINE FOR FEATURE-JOIN ${thisQueryLine}: ${line}`, err.message);
             }
           })
           .then(Promise.resolve())
       ])
       .then(() => {
-        if (thisLine % 25000 === 0) { console.log(`Finished ${thisLine} items! So far ${numUniqueLines} duplicates.`); }
-        thisLine++;
+        if (thisQueryLine % 25000 === 0) { 
+          console.log(`Finished ${thisQueryLine} items! So far ${numDuplicateLines} duplicates.`); 
+        }
+        if (thisQueryLine === thisEndLine) {
+          console.log('DONE! Destroying connection pools');
+          knex.destroy();
+        }
+        thisQueryLine++;
       })
       .catch(((err) => {console.log(err)}))
     });
     // end of rl.on('line') block
     rl.on('end', () => {
-      console.log('DONE!!');
+      thisEndLine = thisReadLine;
+      console.log('Reading Finished, closing file...');
       rl.close();
     });
   })
@@ -84,10 +93,6 @@ var insertFeature = function(knex, url, hasHeader = true) {
 
 exports.seed = function(knex) {
   // return insertFeature(knex, false)
-  // .then(() => {
-  //   console.log('Destroying connection pools');
-  //   knex.destroy();
-  // })
   return knex('product_feature_join').del()
     .then(() => {
       return knex('feature_values').del();
@@ -96,8 +101,4 @@ exports.seed = function(knex) {
       return knex('feature_names').del();
     })
     .then(() => {return insertFeature(knex, url, false)})
-    .then(() => {
-      console.log('Destroying connection pools');
-      knex.destroy();
-    })
 };

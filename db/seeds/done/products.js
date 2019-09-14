@@ -6,14 +6,16 @@ var isCheckUniqueError = function (err) {
 }
 
 var insertProduct = function(knex, url, hasHeader = true) {
-  let isFirstLine = true, thisLine = 1, numUniqueLines = 0;
+  let isFirstLine = true, thisReadLine = 0, thisEndLine, thisQueryLine = 1, numDuplicateLines = 0;
   return new Promise(function () {
     let rl = new lineByLine(url);
     // beginning of rl.on('line') block
     rl.on('line', function(line) {
+      thisReadLine++;
       if (isFirstLine && hasHeader) {
         console.log('Starting To Load CSV into Database');
         isFirstLine = false;
+        thisQueryLine++;
         return;
       }
       let [id, name, slogan, description, category, default_price] = JSON.parse(`[${line}]`);
@@ -25,7 +27,7 @@ var insertProduct = function(knex, url, hasHeader = true) {
                 return selectObj[0]['category_id'];
               })
             } else {  // if the error is another error
-              console.log(`PROBLEM LINE FOR CATEGORIES ${thisLine}: ${line}`, err)
+              console.log(`PROBLEM LINE FOR CATEGORIES ${thisQueryLine}: ${line}`, err)
             }
           })
           .then((category_id) => {
@@ -40,22 +42,30 @@ var insertProduct = function(knex, url, hasHeader = true) {
           })
           .catch((err) => {
             if (isCheckUniqueError(err)) { // if the error is related to unique contraints for products
-              numUniqueLines++;
+              numDuplicateLines++;
             } else{
-              console.log(`PROBLEM LINE FOR PRODUCTS ${thisLine}: ${line}`, err);
+              console.log(`PROBLEM LINE FOR PRODUCTS ${thisQueryLine}: ${line}`, err);
             }
           })
           .then(Promise.resolve())
       ])
       .then(() => {
-        if (thisLine % 25000 === 0) { console.log(`Finished ${thisLine} items!  So far ${numUniqueLines} duplicates.`); }
-        thisLine++;
+        if (thisQueryLine % 25000 === 0) { 
+          console.log(`Finished ${thisQueryLine} items!  So far ${numDuplicateLines} duplicates.`); 
+        }
+        if (thisQueryLine === thisEndLine) {
+          console.log('DONE! Destroying connection pools');
+          knex.destroy();
+        }
+        thisQueryLine++;
       })
       .catch(((err) => {console.log(err)}))
     });
     // end of rl.on('line') block
     rl.on('end', () => {
-      console.log('DONE!!');
+      thisEndLine = thisReadLine;
+      console.log('Reading Finished, closing file...');
+      rl.close();
     });
   })
 }
@@ -67,8 +77,4 @@ exports.seed = function(knex) {
       return knex('categories').del();
     })
     .then(() => {return insertProduct(knex, url, true)})
-    .then(() => {
-      console.log('Destroying connection pools');
-      knex.destroy();
-    })
 };

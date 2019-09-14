@@ -1,62 +1,66 @@
 const lineByLine = require('line-by-line');
-const url = `./data/Related/related.part03`;
+const url = `./data/Styles/styles.part00`;
 
 var isCheckUniqueError = function (err) {
   return err.message.includes('duplicate');
 }
 
-var insertRelated = function(knex, url, hasHeader = true) {
-  let isFirstLine = true, thisLine = 1, numUniqueLines = 0, numProductZeroReferences = 0;
+var insertStyles = function(knex, url, hasHeader = true) {
+  let isFirstLine = true, thisReadLine = 0, thisEndLine, thisQueryLine = 1, numDuplicateLines = 0;
   return new Promise(function () {
     let rl = new lineByLine(url);
     // beginning of rl.on('line') block
     rl.on('line', function(line) {
+      thisReadLine++;
       if (isFirstLine && hasHeader) {
         console.log('Starting To Load CSV into Database');
         isFirstLine = false;
+        thisQueryLine++;
         return;
       }
-      let [id, product_id, related_product_id] = JSON.parse(`[${line}]`);
+      let [id, product_id, style_name, sale_price, original_price, is_default] = JSON.parse(`[${line}]`);
       return Promise.all([
-        // insert into related_products table
-        knex('related_products').insert({
+        // insert into styles table
+        knex('styles').insert({
+          style_id: Number(id),
           product_id: Number(product_id),
-          related_product_id: Number(related_product_id)
+          style_name,
+          sale_price: Number(sale_price || 0),
+          original_price: Number(original_price || 0),
+          is_default: is_default
         })
         .catch((err) => {
-          if (Number(product_id) * Number(related_product_id) === 0) { // if error is referencing ProductID 0
-            numProductZeroReferences++;
-          } else if (isCheckUniqueError(err)) { // if duplicate error, select from existing
-            numUniqueLines++;
+          if (isCheckUniqueError(err)) { // if duplicate error, select from existing
+            numDuplicateLines++;
           } else {  // if the error is another error
-            console.log(`PROBLEM LINE FOR RELATED ${thisLine}: ${line}`, err)
+            console.log(`PROBLEM LINE FOR STYLES ${thisQueryLine}: ${line}`, err)
           }
         })
         .then(Promise.resolve())
       ])
       .then(() => {
-        if (thisLine % 25000 === 0) { console.log(`Finished ${thisLine} items!  So far ${numUniqueLines} duplicates and ${numProductZeroReferences} references to ProductID 0.`); }
-        thisLine++;
+        if (thisQueryLine % 25000 === 0) { 
+          console.log(`Finished ${thisQueryLine} items!  So far ${numDuplicateLines} duplicates.`); 
+        }
+        if (thisQueryLine === thisEndLine) {
+          console.log('DONE! Destroying connection pools');
+          knex.destroy();
+        }
+        thisQueryLine++;
       })
       .catch(((err) => {console.log(err)}))
     });
     // end of rl.on('line') block
     rl.on('end', () => {
-      console.log('DONE!!');
+      thisEndLine = thisReadLine;
+      console.log('Reading Finished, closing file...');
+      rl.close();
     });
   })
 }
 
 exports.seed = function(knex) {
-  return insertRelated(knex, url, false)
-    .then(() => {
-      console.log('Destroying connection pools');
-      knex.destroy();
-    })
-  // return knex('related_products').del()
-  //   .then(() => {return insertRelated(knex, url, true)})
-  //   .then(() => {
-  //     console.log('Destroying connection pools');
-  //     knex.destroy();
-  //   })
+  return insertStyles(knex, url, false);
+  // return knex('styles').del()
+  //   .then(() => {return insertStyles(knex, url, true)})
 };

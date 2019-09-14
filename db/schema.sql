@@ -50,7 +50,7 @@ CREATE TABLE styles (
   sale_price numeric(12, 2) DEFAULT 0.00,
   is_default bit,
   product_id int REFERENCES products(product_id),
-  CONSTRAINT unique_styles UNIQUE (style_name, product_id)
+  -- CONSTRAINT unique_styles UNIQUE (style_name, product_id)
 );
 
 CREATE TABLE sizes (
