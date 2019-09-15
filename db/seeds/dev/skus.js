@@ -1,5 +1,5 @@
 const lineByLine = require('line-by-line');
-const url = `./data/Styles/styles.part00`;
+const url = `./data/Skus/skus.csv`;
 
 var isCheckUniqueError = function (err) {
   return err.message.includes('duplicate');
