@@ -6,7 +6,7 @@ var isCheckUniqueError = function (err) {
 }
 
 var insertSkus = function(knex, url, availableSizes, hasHeader = true) {
-  let isFirstLine = true, thisReadLine = 0, thisEndLine, thisQueryLine = 1, numDuplicateLines = 0;
+  let isFirstLine = true, thisReadLine = 0, thisEndLine, thisQueryLine = 1, numDuplicateLines = 0, numMultipooling = 0;
 
   return new Promise(function () {
     let rl = new lineByLine(url);
@@ -30,7 +30,7 @@ var insertSkus = function(knex, url, availableSizes, hasHeader = true) {
           })
           .catch((err) => {
             if (isCheckUniqueError(err)) { // duplicate sizes error, probably from multipooling
-              numDuplicateLines++;
+              numMultipooling++;
             }
           })
           .finally(() => res(availableSizes[size_name]))
@@ -42,28 +42,33 @@ var insertSkus = function(knex, url, availableSizes, hasHeader = true) {
       return Promise.all([
         findSizeIdFirst
         .then((size_id) => {
-          console.log(line, size_id, availableSizes);
+          return knex('skus').insert({ // insert into skus
+            sku_id: id,
+            style_id,
+            size_id,
+            quantity
+          })
         })
-        // .catch((err) => {
-        //   if (isCheckUniqueError(err)) { // if duplicate error, select from existing
-        //     numDuplicateLines++;
-        //   } else {  // if the error is another error
-        //     console.log(`PROBLEM LINE FOR STYLES ${thisQueryLine}: ${line}`, err)
-        //   }
-        // })
-        // .then(Promise.resolve())
+        .catch((err) => {
+          if (isCheckUniqueError(err)) { // violates unique styleId/size constraint
+            numDuplicateLines++;
+          } else {  // if the error is another error
+            console.log(`PROBLEM LINE FOR STYLES ${thisQueryLine}: ${line}`, err)
+          }
+        })
+        .then(Promise.resolve())
       ])
-      // .then(() => {
-      //   if (thisQueryLine % 25000 === 0) { 
-      //     console.log(`Finished ${thisQueryLine} items!  So far ${numDuplicateLines} duplicates.`); 
-      //   }
-      //   if (thisQueryLine === thisEndLine) {
-      //     console.log('DONE! Destroying connection pools');
-      //     knex.destroy();
-      //   }
-      //   thisQueryLine++;
-      // })
-      // .catch(((err) => {console.log(err)}))
+      .then(() => {
+        if (thisQueryLine % 25000 === 0) { 
+          console.log(`Finished ${thisQueryLine} items!  So far ${numDuplicateLines} duplicates.`); 
+        }
+        if (thisQueryLine === thisEndLine) {
+          console.log('DONE! Destroying connection pools');
+          knex.destroy();
+        }
+        thisQueryLine++;
+      })
+      .catch(((err) => {console.log(err)}))
     });
     // end of rl.on('line') block
     rl.on('end', () => {
@@ -76,6 +81,9 @@ var insertSkus = function(knex, url, availableSizes, hasHeader = true) {
 
 exports.seed = function(knex) {
   // return insertSkus(knex, url, {}, true);
-  return knex('sizes').del()
+  return knex('skus').del()
+    .then(() => {
+      return knex('sizes').del();
+    })
     .then(() => {return insertSkus(knex, url, {}, true)})
 };
