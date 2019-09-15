@@ -1,12 +1,13 @@
 const lineByLine = require('line-by-line');
-const url = `./data/Skus/skus.csv`;
+const url = `./data/Skus/babyskus.csv`;
 
 var isCheckUniqueError = function (err) {
   return err.message.includes('duplicate');
 }
 
-var insertStyles = function(knex, url, hasHeader = true) {
+var insertSkus = function(knex, url, availableSizes, hasHeader = true) {
   let isFirstLine = true, thisReadLine = 0, thisEndLine, thisQueryLine = 1, numDuplicateLines = 0;
+
   return new Promise(function () {
     let rl = new lineByLine(url);
     // beginning of rl.on('line') block
@@ -18,37 +19,51 @@ var insertStyles = function(knex, url, hasHeader = true) {
         thisQueryLine++;
         return;
       }
-      let [id, product_id, style_name, sale_price, original_price, is_default] = JSON.parse(`[${line}]`);
+      let [id, style_id, size_name, quantity] = JSON.parse(`[${line}]`);
+
+      let findSizeIdFirst = new Promise((res) => {
+        // insert into sizes table if not already in availableSizes
+        if (availableSizes[size_name] === undefined) {
+          knex('sizes').insert({size_name}, 'size_id')
+          .then((size_id) => {
+            availableSizes[size_name] = Number(size_id);
+          })
+          .catch((err) => {
+            if (isCheckUniqueError(err)) { // duplicate sizes error, probably from multipooling
+              numDuplicateLines++;
+            }
+          })
+          .finally(() => res(availableSizes[size_name]))
+        } else {
+          res(availableSizes[size_name]);
+        }
+      });
+
       return Promise.all([
-        // insert into styles table
-        knex('styles').insert({
-          style_id: Number(id),
-          product_id: Number(product_id),
-          style_name,
-          sale_price: Number(sale_price || 0),
-          original_price: Number(original_price || 0),
-          is_default: is_default
+        findSizeIdFirst
+        .then((size_id) => {
+          console.log(line, size_id, availableSizes);
         })
-        .catch((err) => {
-          if (isCheckUniqueError(err)) { // if duplicate error, select from existing
-            numDuplicateLines++;
-          } else {  // if the error is another error
-            console.log(`PROBLEM LINE FOR STYLES ${thisQueryLine}: ${line}`, err)
-          }
-        })
-        .then(Promise.resolve())
+        // .catch((err) => {
+        //   if (isCheckUniqueError(err)) { // if duplicate error, select from existing
+        //     numDuplicateLines++;
+        //   } else {  // if the error is another error
+        //     console.log(`PROBLEM LINE FOR STYLES ${thisQueryLine}: ${line}`, err)
+        //   }
+        // })
+        // .then(Promise.resolve())
       ])
-      .then(() => {
-        if (thisQueryLine % 25000 === 0) { 
-          console.log(`Finished ${thisQueryLine} items!  So far ${numDuplicateLines} duplicates.`); 
-        }
-        if (thisQueryLine === thisEndLine) {
-          console.log('DONE! Destroying connection pools');
-          knex.destroy();
-        }
-        thisQueryLine++;
-      })
-      .catch(((err) => {console.log(err)}))
+      // .then(() => {
+      //   if (thisQueryLine % 25000 === 0) { 
+      //     console.log(`Finished ${thisQueryLine} items!  So far ${numDuplicateLines} duplicates.`); 
+      //   }
+      //   if (thisQueryLine === thisEndLine) {
+      //     console.log('DONE! Destroying connection pools');
+      //     knex.destroy();
+      //   }
+      //   thisQueryLine++;
+      // })
+      // .catch(((err) => {console.log(err)}))
     });
     // end of rl.on('line') block
     rl.on('end', () => {
@@ -60,7 +75,7 @@ var insertStyles = function(knex, url, hasHeader = true) {
 }
 
 exports.seed = function(knex) {
-  return insertStyles(knex, url, false);
-  // return knex('styles').del()
-  //   .then(() => {return insertStyles(knex, url, true)})
+  // return insertSkus(knex, url, {}, true);
+  return knex('sizes').del()
+    .then(() => {return insertSkus(knex, url, {}, true)})
 };
