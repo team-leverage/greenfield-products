@@ -1,14 +1,13 @@
-const lineByLine = require('line-by-line');
-const url = `./data/Skus/babyskus.csv`;
+'use strict';
 
-var isCheckUniqueError = function (err) {
-  return err.message.includes('duplicate');
-}
+const lineByLine = require('line-by-line');
+const path = `./data/Skus`;
+const {isCheckUniqueError, isCheckPoolError, isFirstPartFile, generateFileList} = require('../../../util/util');
 
 var insertSkus = function(knex, url, availableSizes, hasHeader = true) {
-  let isFirstLine = true, thisReadLine = 0, thisEndLine, thisQueryLine = 1, numDuplicateLines = 0, numMultipooling = 0;
+  let isFirstLine = true, thisReadLine = 0, thisEndLine, thisQueryLine = 1, numDuplicateLines = 0, numMultipooling = 0, numPoolErrors = 0;
 
-  return new Promise(function () {
+  return new Promise(function (resolveOuterPromise) {
     let rl = new lineByLine(url);
     // beginning of rl.on('line') block
     rl.on('line', function(line) {
@@ -52,19 +51,21 @@ var insertSkus = function(knex, url, availableSizes, hasHeader = true) {
         .catch((err) => {
           if (isCheckUniqueError(err)) { // violates unique styleId/size constraint
             numDuplicateLines++;
+          } else if (isCheckPoolError(err)){
+            numPoolErrors++;
           } else {  // if the error is another error
             console.log(`PROBLEM LINE FOR STYLES ${thisQueryLine}: ${line}`, err)
           }
         })
-        .then(Promise.resolve())
+        // .then(Promise.resolve()) // PROBABLY NOT EVEN NECESSARY
       ])
       .then(() => {
         if (thisQueryLine % 25000 === 0) { 
-          console.log(`Finished ${thisQueryLine} items!  So far ${numDuplicateLines} duplicates.`); 
+          console.log(`Finished ${thisQueryLine} items!  So far ${numDuplicateLines} duplicates, ${numPoolErrors} pool errors.`); 
         }
         if (thisQueryLine === thisEndLine) {
-          console.log('DONE! Destroying connection pools');
-          knex.destroy();
+          console.log('DONE with this file... onto next file...')
+          resolveOuterPromise();
         }
         thisQueryLine++;
       })
@@ -79,11 +80,33 @@ var insertSkus = function(knex, url, availableSizes, hasHeader = true) {
   })
 }
 
+var batchInsertSeed = function(knex, fileList) {
+  var availableSizes = {};
+  switch(fileList.length) {
+    case (0):
+      console.log('DONE with ALL files! Destroying connection pools');
+      return knex.destroy();
+    case (1): //first file
+      return insertSkus(knex, fileList[0], availableSizes, isFirstPartFile(fileList[0]));
+    default:
+      let lastFile = fileList.pop();
+      console.log(lastFile);
+      return insertSkus(knex, lastFile, availableSizes, isFirstPartFile(lastFile))
+        .then(() => {
+          return batchInsertSeed(knex, fileList);
+        });
+  }
+}
+
 exports.seed = function(knex) {
   // return insertSkus(knex, url, {}, true);
-  return knex('skus').del()
-    .then(() => {
-      return knex('sizes').del();
-    })
-    .then(() => {return insertSkus(knex, url, {}, true)})
+
+  // return knex('skus').del()
+  //   .then(() => {
+  //     return knex('sizes').del();
+  //   })
+  //   .then(() => {return insertSkus(knex, url, {}, true)})
+
+  let listOfFiles = generateFileList(`${path}/skus.part`, 48);
+  return batchInsertSeed(knex, listOfFiles);
 };
