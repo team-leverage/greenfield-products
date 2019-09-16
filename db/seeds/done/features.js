@@ -1,14 +1,11 @@
 const lineByLine = require('line-by-line');
 const NULLPLACEHOLDER = 'NULLNULL';
 const url = `./data/Features/features.part00.csv`;
-
-var isCheckUniqueError = function (err) {
-  return err.message.includes('duplicate');
-}
+const {isCheckUniqueError, isCheckPoolError} = require('../../../util/util');
 
 var insertFeature = function(knex, url, hasHeader = true) {
-  let isFirstLine = true, thisReadLine = 0, thisEndLine, thisQueryLine = 1, numDuplicateLines = 0;
-  return new Promise(function () {
+  let isFirstLine = true, thisReadLine = 0, thisEndLine, thisQueryLine = 1, numDuplicateLines = 0, numPoolErrorsNames = 0, numPoolErrorsValues = 0, numPoolErrorsJoin = 0;
+  return new Promise(function (resolveOuterPromise) {
     let rl = new lineByLine(url);
     // beginning of rl.on('line') block
     rl.on('line', function(line) {
@@ -30,6 +27,8 @@ var insertFeature = function(knex, url, hasHeader = true) {
               return knex('feature_names').where('feature_name', feature_name).select('feature_name_id').then((selectObj) => {
                 return selectObj[0]['feature_name_id'];
               })
+            } else if (isCheckPoolError(err)){
+              numPoolErrorsNames++;
             } else {  // if the error is another error
               console.log(`PROBLEM LINE FOR FEATURE-NAMES ${thisQueryLine}: ${line}`, err)
             }
@@ -50,6 +49,8 @@ var insertFeature = function(knex, url, hasHeader = true) {
               }).select('feature_value_id').then((selectObj) => {
                 return selectObj[0]['feature_value_id'];
               })
+            } else if (isCheckPoolError(err)){
+              numPoolErrorsValues++;
             } else{
               console.log(`PROBLEM LINE FOR FEATURE-VALUE ${thisQueryLine}: ${line}`, err);
             }
@@ -64,19 +65,22 @@ var insertFeature = function(knex, url, hasHeader = true) {
           .catch((err) => {
             if (isCheckUniqueError(err)) { // if the error is related to unique contraints for products
               numDuplicateLines++;
+            } else if (isCheckPoolError(err)){
+              numPoolErrorsJoin++;
             } else {
               console.log(`PROBLEM LINE FOR FEATURE-JOIN ${thisQueryLine}: ${line}`, err.message);
             }
           })
-          .then(Promise.resolve())
       ])
       .then(() => {
         if (thisQueryLine % 25000 === 0) { 
-          console.log(`Finished ${thisQueryLine} items! So far ${numDuplicateLines} duplicates.`); 
+          console.log(`Finished ${thisQueryLine} items! So far ${numDuplicateLines} duplicates.  \
+          Pool Errors: ${numPoolErrorsNames} feature_names, ${numPoolErrorsValues} feature_values, ${numPoolErrorsJoin} product_feature_join`); 
         }
         if (thisQueryLine === thisEndLine) {
           console.log('DONE! Destroying connection pools');
           knex.destroy();
+          resolveOuterPromise();
         }
         thisQueryLine++;
       })

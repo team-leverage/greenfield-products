@@ -1,13 +1,10 @@
 const lineByLine = require('line-by-line');
 const url = `./data/Related/related.part03`;
-
-var isCheckUniqueError = function (err) {
-  return err.message.includes('duplicate');
-}
+const {isCheckUniqueError, isCheckPoolError} = require('../../../util/util');
 
 var insertRelated = function(knex, url, hasHeader = true) {
-  let isFirstLine = true, thisReadLine = 0, thisEndLine, thisQueryLine = 1, numDuplicateLines = 0, numProductZeroReferences = 0;
-  return new Promise(function () {
+  let isFirstLine = true, thisReadLine = 0, thisEndLine, thisQueryLine = 1, numDuplicateLines = 0, numProductZeroReferences = 0, numPoolErrors = 0;
+  return new Promise(function (resolveOuterPromise) {
     let rl = new lineByLine(url);
     // beginning of rl.on('line') block
     rl.on('line', function(line) {
@@ -30,19 +27,22 @@ var insertRelated = function(knex, url, hasHeader = true) {
             numProductZeroReferences++;
           } else if (isCheckUniqueError(err)) { // if duplicate error, select from existing
             numDuplicateLines++;
+          } else if (isCheckPoolError(err)){
+            numPoolErrors++;
           } else {  // if the error is another error
             console.log(`PROBLEM LINE FOR RELATED ${thisQueryLine}: ${line}`, err)
           }
         })
-        .then(Promise.resolve())
       ])
       .then(() => {
         if (thisQueryLine % 25000 === 0) { 
-          console.log(`Finished ${thisQueryLine} items!  So far ${numDuplicateLines} duplicates and ${numProductZeroReferences} references to ProductID 0.`); 
+          console.log(`Finished ${thisQueryLine} items!  So far ${numDuplicateLines} duplicates, ${numPoolErrors} pool errors, \
+          and ${numProductZeroReferences} references to ProductID 0.`); 
         }
         if (thisQueryLine === thisEndLine) {
           console.log('DONE! Destroying connection pools');
           knex.destroy();
+          resolveOuterPromise();
         }
         thisQueryLine++;
       })

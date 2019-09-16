@@ -1,13 +1,10 @@
 const lineByLine = require('line-by-line');
 const url = `./data/Styles/styles.part03.part01`;
-
-var isCheckUniqueError = function (err) {
-  return err.message.includes('duplicate');
-}
+const {isCheckUniqueError, isCheckPoolError} = require('../../../util/util');
 
 var insertStyles = function(knex, url, hasHeader = true) {
-  let isFirstLine = true, thisReadLine = 0, thisEndLine, thisQueryLine = 1, numDuplicateLines = 0;
-  return new Promise(function () {
+  let isFirstLine = true, thisReadLine = 0, thisEndLine, thisQueryLine = 1, numDuplicateLines = 0, numPoolErrors = 0;
+  return new Promise(function (resolveOuterPromise) {
     let rl = new lineByLine(url);
     // beginning of rl.on('line') block
     rl.on('line', function(line) {
@@ -32,19 +29,21 @@ var insertStyles = function(knex, url, hasHeader = true) {
         .catch((err) => {
           if (isCheckUniqueError(err)) { // if duplicate error, select from existing
             numDuplicateLines++;
+          } else if (isCheckPoolError(err)){
+            numPoolErrors++;
           } else {  // if the error is another error
             console.log(`PROBLEM LINE FOR STYLES ${thisQueryLine}: ${line}`, err)
           }
         })
-        .then(Promise.resolve())
       ])
       .then(() => {
         if (thisQueryLine % 25000 === 0) { 
-          console.log(`Finished ${thisQueryLine} items!  So far ${numDuplicateLines} duplicates.`); 
+          console.log(`Finished ${thisQueryLine} items!  So far ${numDuplicateLines} duplicates, ${numPoolErrors} pool errors.`); 
         }
         if (thisQueryLine === thisEndLine) {
           console.log('DONE! Destroying connection pools');
           knex.destroy();
+          resolveOuterPromise();
         }
         thisQueryLine++;
       })
