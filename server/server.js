@@ -10,7 +10,7 @@ const {
   getRelated,
   getCart,
   postToCart,
-  postInteraction
+  postInteraction,
 } = require('./controllers');
 
 const app = express();

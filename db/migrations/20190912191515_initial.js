@@ -1,14 +1,14 @@
 
-exports.up = function(knex) {
+exports.up = function (knex) {
   return Promise.all([
-    knex.schema.createTable('categories', function(table) {
+    knex.schema.createTable('categories', (table) => {
       table.increments('category_id').primary();
       table.string('category_name', 50);
 
       table.timestamps(true, true);
     }),
 
-    knex.schema.createTable('products', function(table) {
+    knex.schema.createTable('products', (table) => {
       table.increments('product_id').primary();
       table.string('product_name', 50);
       table.string('slogan', 250);
@@ -18,13 +18,13 @@ exports.up = function(knex) {
       table.foreign('category_id').references('categories.category_id');
 
       table.timestamps(true, true);
-    })
-  ])
+    }),
+  ]);
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
   return Promise.all([
     knex.schema.dropTable('products'),
-    knex.schema.dropTable('categories')
+    knex.schema.dropTable('categories'),
   ]);
 };

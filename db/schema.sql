@@ -72,3 +72,17 @@ CREATE TABLE photos (
   thumbnail_url varchar(1500),
   CONSTRAINT unique_photos UNIQUE (style_id, main_url, thumbnail_url)
 );
+
+CREATE TABLE carts (
+  id serial PRIMARY KEY,
+  user_session int,
+  product_id int REFERENCES products(product_id),
+  active bit
+);
+
+CREATE TABLE interactions (
+  id serial PRIMARY KEY,
+  element varchar(60),
+  widget varchar(60),
+  time varchar(60)
+);
