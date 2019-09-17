@@ -37,7 +37,7 @@ exports.getStyles = function (req, res) {
         });
       }))
     })
-    
+
     Promise.all(stylePromises).then(() => res.json(styles))
   });
 }
@@ -50,17 +50,17 @@ exports.getRelated = function (req, res) {
 }
 
 exports.getCart = function (req, res) {
-  let userSession = req.params.userSession;
+  let userSession = Number(req.params.user_session);
   queries.getCart(userSession, (data) => {
     res.json(data);
   });
 }
 
 exports.postToCart = function (req, res) {
-  // let postData = {
-  //   user_session: req.body.user_session,
-  //   product_id: req.body.product_id
-  // };
+  let postData = {
+    user_session: req.body.user_session,
+    product_id: req.body.product_id
+  };
   queries.postToCart(postData, (data) => {
     res.json(data);
   });

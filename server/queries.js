@@ -97,15 +97,32 @@ exports.getRelated = function (productId, cb) {
     cb(result);
   });
 }
-
+///////////////////
 exports.getCart = function (userSession, cb) {
-
+  knex.select('*').from('carts').where({user_session: userSession})
+  .then((result) => {
+    cb(result);
+  });
 }
 
 exports.postToCart = function (postData, cb) {
-
+  knex('carts').insert({
+    user_session: postData.user_session,
+    product_id: postData.product_id,
+    active: 1
+  })
+  .then((result) => {
+    cb(result);
+  });
 }
-
+///////////////////
 exports.postInteraction = function (postData, cb) {
-
+  knex('interactions').insert({
+    element: postData.element,
+    widget: postData.widget,
+    time: postData.time
+  })
+  .then((result) => {
+    cb(result);
+  });
 }

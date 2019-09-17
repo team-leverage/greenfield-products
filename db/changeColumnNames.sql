@@ -9,3 +9,4 @@
 -- ALTER TABLE feature_values RENAME COLUMN feature_value TO value;
 -- ALTER TABLE feature_names RENAME COLUMN feature_name TO feature;
 -- ALTER TABLE styles RENAME COLUMN style_name TO name;
+-- ALTER TABLE photos RENAME COLUMN main_url TO url;
