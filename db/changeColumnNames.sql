@@ -2,7 +2,10 @@
 -- This is specifically for optimizing the Project Greenfield API
 -- (I preferred previously named fields)
 
-ALTER TABLE categories RENAME COLUMN category_name TO category;
-ALTER TABLE products RENAME COLUMN product_id TO id;
-ALTER TABLE products RENAME COLUMN product_description TO description;
-ALTER TABLE products RENAME COLUMN product_name TO name;
+-- ALTER TABLE categories RENAME COLUMN category_name TO category;
+-- ALTER TABLE products RENAME COLUMN product_id TO id;
+-- ALTER TABLE products RENAME COLUMN product_description TO description;
+-- ALTER TABLE products RENAME COLUMN product_name TO name;
+-- ALTER TABLE feature_values RENAME COLUMN feature_value TO value;
+-- ALTER TABLE feature_names RENAME COLUMN feature_name TO feature;
+-- ALTER TABLE styles RENAME COLUMN style_name TO name;
