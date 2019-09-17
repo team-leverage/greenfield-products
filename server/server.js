@@ -1,21 +1,30 @@
 const PORT = 3000;
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('./queries');
+
+const {
+  getProductList,
+  getProductInfo,
+  getStyles,
+  getRelated,
+  getCart,
+  postToCart,
+  postInteraction
+} = require('controllers');
+
 const app = express();
-
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname), '../public'));
 
-db.loadProducts();
-
-// app.get('/', db.loadProducts);
-
-// app.get('/', (req, res) => {
-//   res.json({info: 'Node.js, Express, and PostgreSQL API'})
-// });
-
-// app.get('/users', db.loadProducts);
+app.get('/products/list', getProductList);
+app.get('/products/:product_id', getProductInfo);
+app.get('/products/:product_id/styles', getStyles);
+app.get('/products/:product_id/related', getRelated);
+app.get('/cart/:user_session', getCart);
+app.post('/cart', postToCart);
+app.post('/interactions', postInteraction);
 
 app.listen(PORT, () => {
   console.log(`App is running on port ${PORT}`);
