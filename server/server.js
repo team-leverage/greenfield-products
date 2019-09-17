@@ -11,14 +11,14 @@ const {
   getCart,
   postToCart,
   postInteraction
-} = require('controllers');
+} = require('./controllers');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname), '../public'));
+app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/products/list', getProductList);
+app.get('/products/list/:num', getProductList);
 app.get('/products/:product_id', getProductInfo);
 app.get('/products/:product_id/styles', getStyles);
 app.get('/products/:product_id/related', getRelated);
