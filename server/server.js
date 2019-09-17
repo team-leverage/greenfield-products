@@ -18,6 +18,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
 
+app.get('/products/list/', (req, res) => {
+  res.redirect('/products/list/10');
+});
 app.get('/products/list/:num', getProductList);
 app.get('/products/:product_id', getProductInfo);
 app.get('/products/:product_id/styles', getStyles);
