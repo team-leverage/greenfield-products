@@ -1,3 +1,5 @@
+const {LoremName, LoremSlogan, LoremDescription} = require('./lorem');
+
 exports.isCheckUniqueError = function (err) {
   return err.message.includes('duplicate');
 }
@@ -17,3 +19,29 @@ exports.generateFileList = function(prefix, numFiles) {
   }
   return listOfFiles;
 }
+
+// const makeFakeProduct = function() { // QUESTION: Do I want to generate SINGLE fake product or a BUNCH of fake products?
+
+// }
+
+// const makeFakeStyle = function() {
+
+// }
+
+// // const makeFakeFeature
+// // const makeFakeRelated
+
+// exports.insertFakeData = function(knex, table, targetCount) { // table could be products, styles
+//   var makeFunction;
+//   let count = knex(table).count();
+//   switch (table) {
+//     case ('products'):
+//       makeFunction = makeFakeProduct;
+//     case ('styles'):
+//       makeFunction = makeFakeStyle;
+//   }
+//   while (count < targetCount) {
+    
+//     count++ // ONLY if insertX returns true
+//   }
+// }
