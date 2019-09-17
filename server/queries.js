@@ -76,11 +76,10 @@ exports.getSkus = function(styleId, cb) {
   knex.select(...skuFields).from('skus').where({style_id: styleId})
     .fullOuterJoin('sizes', 'skus.size_id', 'sizes.size_id')
   .then((unformattedResult) => {
-    let obj = {};
-    unformattedResult.forEach((skuObj) => {
-      obj[skuObj.size_name] = skuObj.quantity;
-    })
-    return obj;
+    return unformattedResult.reduce((accum, skuObj) => {
+      accum[skuObj.size_name] = skuObj.quantity;
+      return accum;
+    }, {})
   })
   .then((result) => {
     cb(result);
@@ -88,7 +87,15 @@ exports.getSkus = function(styleId, cb) {
 }
 ///////////////////
 exports.getRelated = function (productId, cb) {
-
+  knex.select('related_product_id').from('related_products').where({product_id: productId})
+  .then((unformattedResult) => {
+    return unformattedResult.map((relatedObj) => {
+      return relatedObj.related_product_id;
+    })
+  })
+  .then((result) => {
+    cb(result);
+  });
 }
 
 exports.getCart = function (userSession, cb) {
