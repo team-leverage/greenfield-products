@@ -1,27 +1,31 @@
 const { staging } = require('../knexfile');
 const knex = require('knex')(staging);
 
-// /////////////////
+// /////////////////Below are for /products/list
 exports.getProductList = function (num, cb) { // there's actually 2 params, look at this again later
   const productFields = [
-    'id',
-    'name',
+    'product_id AS id',
+    'product_name AS name',
     'slogan',
-    'description',
-    'category',
+    'product_description AS description',
+    'category_name AS category',
     'default_price',
   ];
-  knex.select(...productFields).from('products').fullOuterJoin('categories', 'categories.category_id', 'products.category_id').limit(num)
+  knex.select(...productFields).from('products')
+    .rightOuterJoin('categories', 'categories.category_id', 'products.category_id').limit(num)
     .then((result) => {
       cb(result);
     });
 };
-// /////////////////
+// /////////////////Below are for /products/:product_id
 exports.getProductFeatures = function (productId, cb) {
-  const featureFields = ['feature', 'value'];
+  const featureFields = [
+    'feature_name AS feature', 
+    'feature_value AS value'
+  ];
   knex.select(...featureFields).from('product_feature_join').where({ product_id: productId })
-    .fullOuterJoin('feature_values', 'product_feature_join.feature_value_id', 'feature_values.feature_value_id')
-    .fullOuterJoin('feature_names', 'feature_values.feature_name_id', 'feature_names.feature_name_id')
+    .rightOuterJoin('feature_values', 'product_feature_join.feature_value_id', 'feature_values.feature_value_id')
+    .rightOuterJoin('feature_names', 'feature_values.feature_name_id', 'feature_names.feature_name_id')
     .then((result) => {
       cb(result);
     });
@@ -29,27 +33,27 @@ exports.getProductFeatures = function (productId, cb) {
 
 exports.getProductInfo = function (productId, cb) {
   const productFields = [
-    'id',
-    'name',
+    'product_id AS id',
+    'product_name AS name',
     'slogan',
-    'description',
-    'category',
+    'product_description AS description',
+    'category_name AS category',
     'default_price',
   ];
-  knex.select(...productFields).from('products').where({ id: productId })
-    .fullOuterJoin('categories', 'categories.category_id', 'products.category_id')
+  knex.select(...productFields).from('products').where({ product_id: productId })
+    .rightOuterJoin('categories', 'categories.category_id', 'products.category_id')
     .then((result) => {
       cb(result);
     });
 };
-// /////////////////
+// /////////////////Below are for /products/:product_id/styles
 exports.getAllStyles = function (productId, cb) { // this is the value for the results key
   const styleFields = [
     'style_id',
-    'name',
+    'style_name AS name',
     'original_price',
     'sale_price',
-    'is_default',
+    'is_default AS default\\?',
   ];
   knex.select(...styleFields).from('styles').where({ product_id: productId })
     .then((result) => {
@@ -59,7 +63,7 @@ exports.getAllStyles = function (productId, cb) { // this is the value for the r
 
 exports.getPhotos = function (styleId, cb) { // this is the value for the photos subkey
   const photoFields = [
-    'main_url',
+    'main_url AS url',
     'thumbnail_url',
   ];
   knex.select(...photoFields).from('photos').where({ style_id: styleId })
@@ -74,7 +78,7 @@ exports.getSkus = function (styleId, cb) {
     'quantity',
   ];
   knex.select(...skuFields).from('skus').where({ style_id: styleId })
-    .fullOuterJoin('sizes', 'skus.size_id', 'sizes.size_id')
+    .rightOuterJoin('sizes', 'skus.size_id', 'sizes.size_id')
     .then((unformatResult) => unformatResult.reduce((accum, skuObj) => {
       accum[skuObj.size_name] = skuObj.quantity;
       return accum;
@@ -83,7 +87,7 @@ exports.getSkus = function (styleId, cb) {
       cb(result);
     });
 };
-// /////////////////
+// /////////////////Below are for /products/:product_id/related
 exports.getRelated = function (productId, cb) {
   knex.select('related_product_id').from('related_products').where({ product_id: productId })
     .then((unformatResult) => unformatResult.map((relatedObj) => relatedObj.related_product_id))
@@ -91,7 +95,7 @@ exports.getRelated = function (productId, cb) {
       cb(result);
     });
 };
-// /////////////////
+// /////////////////Below are for /cart
 exports.getCart = function (userSession, cb) {
   knex.select('*').from('carts').where({ user_session: userSession })
     .then((result) => {
@@ -109,7 +113,7 @@ exports.postToCart = function (postData, cb) {
       cb(result);
     });
 };
-// /////////////////
+// /////////////////Below are for /interactions
 exports.postInteraction = function (postData, cb) {
   knex('interactions').insert({
     element: postData.element,
