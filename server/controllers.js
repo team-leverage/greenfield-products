@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const queries = require('./queries');
 
 exports.getProductList = function (req, res) {

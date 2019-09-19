@@ -1,10 +1,10 @@
-/* eslint-disable camelcase, no-plusplus */
-const lineByLine = require('line-by-line');
+/* eslint-disable camelcase, no-plusplus, consistent-return */
+const LineByLine = require('line-by-line');
 
 const url = './data/Products/product.csv';
 const { isCheckUniqueError, isCheckPoolError } = require('../../../util/util');
 
-const insertProduct = function (knex, url, hasHeader = true) {
+const insertProduct = function (knex, seedFilePath, hasHeader = true) {
   let isFirstLine = true;
   let thisReadLine = 0;
   let thisEndLine;
@@ -13,7 +13,7 @@ const insertProduct = function (knex, url, hasHeader = true) {
   let numPoolErrorsCategories = 0;
   let numPoolErrorsProducts = 0;
   return new Promise(((resolveOuterPromise) => {
-    const rl = new lineByLine(url);
+    const rl = new LineByLine(seedFilePath);
     // beginning of rl.on('line') block
     rl.on('line', (line) => {
       thisReadLine++;
@@ -44,7 +44,7 @@ const insertProduct = function (knex, url, hasHeader = true) {
             default_price: Number(default_price),
           }))
           .catch((err) => {
-            if (isCheckUniqueError(err)) { // if the error is related to unique contraints for products
+            if (isCheckUniqueError(err)) { // if the error is about unique contraints for products
               numDuplicateLines++;
             } else if (isCheckPoolError(err)) {
               numPoolErrorsProducts++;

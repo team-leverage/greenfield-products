@@ -21,8 +21,8 @@ exports.generateFileList = function (prefix, numFiles) {
   return listOfFiles;
 };
 
-// const makeFakeProduct = function() { 
-  // QUESTION: Do I want to generate SINGLE fake product or a BUNCH of fake products?
+// const makeFakeProduct = function() {
+// QUESTION: Do I want to generate SINGLE fake product or a BUNCH of fake products?
 
 // }
 

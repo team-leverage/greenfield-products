@@ -1,11 +1,11 @@
-/* eslint-disable camelcase, no-plusplus */
-const lineByLine = require('line-by-line');
+/* eslint-disable camelcase, no-plusplus, prefer-const, consistent-return */
+const LineByLine = require('line-by-line');
 
 const NULLPLACEHOLDER = 'NULLNULL';
 const url = './data/Features/features.part00.csv';
 const { isCheckUniqueError, isCheckPoolError } = require('../../../util/util');
 
-const insertFeature = function (knex, url, hasHeader = true) {
+const insertFeature = function (knex, seedFilePath, hasHeader = true) {
   let isFirstLine = true;
   let thisReadLine = 0;
   let thisEndLine;
@@ -15,7 +15,7 @@ const insertFeature = function (knex, url, hasHeader = true) {
   let numPoolErrorsValues = 0;
   let numPoolErrorsJoin = 0;
   return new Promise(((resolveOuterPromise) => {
-    const rl = new lineByLine(url);
+    const rl = new LineByLine(seedFilePath);
     // beginning of rl.on('line') block
     rl.on('line', (line) => {
       thisReadLine++;
@@ -25,7 +25,7 @@ const insertFeature = function (knex, url, hasHeader = true) {
         thisQueryLine++;
         return;
       }
-      let [id, product_id, feature_name, feature_value] = JSON.parse(`[${line}]`);
+      let [, product_id, feature_name, feature_value] = JSON.parse(`[${line}]`);
       feature_value = feature_value || NULLPLACEHOLDER;
       let feature_name_id_closure;
       return Promise.all([

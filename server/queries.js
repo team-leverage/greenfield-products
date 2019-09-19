@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign, import/order */
 const { staging } = require('../knexfile');
 const knex = require('knex')(staging);
 
@@ -20,8 +21,8 @@ exports.getProductList = function (num, cb) { // there's actually 2 params, look
 // /////////////////Below are for /products/:product_id
 exports.getProductFeatures = function (productId, cb) {
   const featureFields = [
-    'feature_name AS feature', 
-    'feature_value AS value'
+    'feature_name AS feature',
+    'feature_value AS value',
   ];
   knex.select(...featureFields).from('product_feature_join').where({ product_id: productId })
     .rightOuterJoin('feature_values', 'product_feature_join.feature_value_id', 'feature_values.feature_value_id')

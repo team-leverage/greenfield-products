@@ -1,10 +1,10 @@
-/* eslint-disable camelcase, no-plusplus */
-const lineByLine = require('line-by-line');
+/* eslint-disable camelcase, no-plusplus, consistent-return */
+const LineByLine = require('line-by-line');
 
 const url = './data/Related/related.part03';
 const { isCheckUniqueError, isCheckPoolError } = require('../../../util/util');
 
-const insertRelated = function (knex, url, hasHeader = true) {
+const insertRelated = function (knex, seedFilePath, hasHeader = true) {
   let isFirstLine = true;
   let thisReadLine = 0;
   let thisEndLine;
@@ -13,7 +13,7 @@ const insertRelated = function (knex, url, hasHeader = true) {
   let numProductZeroReferences = 0;
   let numPoolErrors = 0;
   return new Promise(((resolveOuterPromise) => {
-    const rl = new lineByLine(url);
+    const rl = new LineByLine(seedFilePath);
     // beginning of rl.on('line') block
     rl.on('line', (line) => {
       thisReadLine++;
@@ -23,7 +23,7 @@ const insertRelated = function (knex, url, hasHeader = true) {
         thisQueryLine++;
         return;
       }
-      const [id, product_id, related_product_id] = JSON.parse(`[${line}]`);
+      const [, product_id, related_product_id] = JSON.parse(`[${line}]`);
       return Promise.all([
         // insert into related_products table
         knex('related_products').insert({
@@ -31,7 +31,7 @@ const insertRelated = function (knex, url, hasHeader = true) {
           related_product_id: Number(related_product_id),
         })
           .catch((err) => {
-            if (Number(product_id) * Number(related_product_id) === 0) { // if error is referencing ProductID 0
+            if (Number(product_id) * Number(related_product_id) === 0) { // if ref. ProductID 0
               numProductZeroReferences++;
             } else if (isCheckUniqueError(err)) { // if duplicate error, select from existing
               numDuplicateLines++;

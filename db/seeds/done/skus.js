@@ -1,12 +1,12 @@
-/* eslint-disable camelcase, no-plusplus */
-const lineByLine = require('line-by-line');
+/* eslint-disable camelcase, no-plusplus, no-param-reassign, no-unused-vars, consistent-return */
+const LineByLine = require('line-by-line');
 
 const path = './data/Skus';
 const {
   isCheckUniqueError, isCheckPoolError, isFirstPartFile, generateFileList,
 } = require('../../../util/util');
 
-const insertSkus = function (knex, url, availableSizes, hasHeader = true) {
+const insertSkus = function (knex, seedFilePath, availableSizes, hasHeader = true) {
   let isFirstLine = true;
   let thisReadLine = 0;
   let thisEndLine;
@@ -15,7 +15,7 @@ const insertSkus = function (knex, url, availableSizes, hasHeader = true) {
   let numMultipooling = 0;
   let numPoolErrors = 0;
   return new Promise(((resolveOuterPromise) => {
-    const rl = new lineByLine(url);
+    const rl = new LineByLine(seedFilePath);
     // beginning of rl.on('line') block
     rl.on('line', (line) => {
       thisReadLine++;
@@ -87,6 +87,7 @@ const insertSkus = function (knex, url, availableSizes, hasHeader = true) {
 
 const batchInsertSeed = function (knex, fileList) {
   const availableSizes = {};
+  let lastFile;
   switch (fileList.length) {
     case (0):
       console.log('DONE with ALL files! Destroying connection pools');
@@ -94,7 +95,7 @@ const batchInsertSeed = function (knex, fileList) {
     case (1): // first file
       return insertSkus(knex, fileList[0], availableSizes, isFirstPartFile(fileList[0]));
     default:
-      const lastFile = fileList.pop();
+      lastFile = fileList.pop();
       console.log(lastFile);
       return insertSkus(knex, lastFile, availableSizes, isFirstPartFile(lastFile))
         .then(() => batchInsertSeed(knex, fileList));
@@ -111,6 +112,6 @@ exports.seed = function (knex) {
   //   .then(() => {return insertSkus(knex, url, {}, true)})
 
   // let listOfFiles = generateFileList(`${path}/skus.part`, 48);
-  const listOfFiles = ['./data/Skus/smallerchunks/skus.part05'];
+  const listOfFiles = [`${path}/smallerchunks/skus.part05`];
   return batchInsertSeed(knex, listOfFiles);
 };

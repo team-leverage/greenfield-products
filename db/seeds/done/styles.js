@@ -1,10 +1,10 @@
-/* eslint-disable camelcase, no-plusplus */
-const lineByLine = require('line-by-line');
+/* eslint-disable camelcase, no-plusplus, consistent-return */
+const LineByLine = require('line-by-line');
 
 const url = './data/Styles/styles.part03.part01';
 const { isCheckUniqueError, isCheckPoolError } = require('../../../util/util');
 
-const insertStyles = function (knex, url, hasHeader = true) {
+const insertStyles = function (knex, seedFilePath, hasHeader = true) {
   let isFirstLine = true;
   let thisReadLine = 0;
   let thisEndLine;
@@ -12,7 +12,7 @@ const insertStyles = function (knex, url, hasHeader = true) {
   let numDuplicateLines = 0;
   let numPoolErrors = 0;
   return new Promise(((resolveOuterPromise) => {
-    const rl = new lineByLine(url);
+    const rl = new LineByLine(seedFilePath);
     // beginning of rl.on('line') block
     rl.on('line', (line) => {
       thisReadLine++;
