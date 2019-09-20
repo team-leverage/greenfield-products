@@ -21,7 +21,7 @@ exports.getProductInfo = function (req, res) {
 exports.getStyles = function (req, res) {
   const productId = Number(req.params.product_id); // NOTE: API as is has this as a STRING!! Fix???
   const styles = { product_id: productId };
-  queries.getAllStyles(productId, (results) => {
+  queries.getAllStyles(productId, async (results) => {
     styles.results = results;
 
     const stylePromises = [];
@@ -29,8 +29,8 @@ exports.getStyles = function (req, res) {
     results.forEach((styleObj) => {
       stylePromises.push(new Promise((resolve) => {
         const styleId = styleObj.style_id;
-        queries.getPhotos(styleId, (photosList) => {
-          styleObj.photos = photosList;
+        queries.getPhotos(styleId, (photosList) => { // Possible source of optimization:
+          styleObj.photos = photosList; // make getting Photos and getting Skus parallel
           queries.getSkus(styleId, (skusObj) => {
             styleObj.skus = skusObj;
             resolve();
@@ -39,7 +39,8 @@ exports.getStyles = function (req, res) {
       }));
     });
 
-    Promise.all(stylePromises).then(() => res.json(styles));
+    await Promise.all(stylePromises);
+    res.json(styles);
   });
 };
 
