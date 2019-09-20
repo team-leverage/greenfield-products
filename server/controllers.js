@@ -44,20 +44,6 @@ exports.getStyles = function (req, res) {
         })
       )
       // END PARALLEL PHOTOS AND SKUS
-      
-      //  START PARALLEL PHOTOS AND SKUS
-      // stylePromises.push(new Promise((resolve) => {
-      //   const styleId = styleObj.style_id;
-      //   queries.getPhotos(styleId, (photosList) => { // Possible source of optimization:
-      //     styleObj.photos = photosList; // make getting Photos and getting Skus parallel
-      //     queries.getSkus(styleId, (skusObj) => {
-      //       styleObj.skus = skusObj;
-      //       resolve();
-      //     });
-      //   });
-      // }));
-        // END SERIES PHOTOS AND SKUS
-
     });
 
     await Promise.all(stylePromises);

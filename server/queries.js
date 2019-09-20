@@ -3,7 +3,7 @@ const { staging } = require('../knexfile');
 const knex = require('knex')(staging);
 
 // /////////////////Below are for /products/list
-exports.getProductList = async function (num, cb) { // there's actually 2 params, look at this again later
+exports.getProductList = async function (num, cb) { // there's actually 2 params, look again later
   const productFields = [
     'product_id AS id',
     'product_name AS name',
@@ -73,7 +73,7 @@ exports.getSkus = async function (styleId, cb) {
     'quantity',
   ];
 
-  let unformatResult = await knex.select(...skuFields)
+  const unformatResult = await knex.select(...skuFields)
     .from('skus')
     .where({ style_id: styleId })
     .rightOuterJoin('sizes', 'skus.size_id', 'sizes.size_id');
@@ -82,16 +82,14 @@ exports.getSkus = async function (styleId, cb) {
     accum[skuObj.size_name] = skuObj.quantity;
     return accum;
   }, {}));
-
 };
 // /////////////////Below are for /products/:product_id/related
 exports.getRelated = async function (productId, cb) {
-  let unformatResult = await knex.select('related_product_id')
+  const unformatResult = await knex.select('related_product_id')
     .from('related_products')
-    .where({ product_id: productId })
+    .where({ product_id: productId });
   // then reformat the query output
   cb(unformatResult.map((relatedObj) => relatedObj.related_product_id));
-
 };
 // /////////////////Below are for /cart
 exports.getCart = async function (userSession, cb) {
