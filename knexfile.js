@@ -43,20 +43,22 @@ module.exports = {
     },
   },
 
-  // production: {
-  //   client: 'postgresql',
-  //   connection: {
-  //     database: 'my_db',
-  //     user:     'username',
-  //     password: 'password'
-  //   },
-  //   pool: {
-  //     min: 2,
-  //     max: 10
-  //   },
-  //   migrations: {
-  //     tableName: 'knex_migrations'
-  //   }
-  // },
+  production: {
+    client: 'pg',
+    connection: {
+      host: 'localhost',
+      database: 'greenfield',
+      user: 'han',
+      password: 'face468a',
+    },
+    useNullAsDefault: true,
+    pool: {
+      min: 2,
+      max: 100,
+    },
+    migrations: {
+      directory: './db/migrations',
+    },
+  },
 
 };
