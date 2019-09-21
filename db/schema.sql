@@ -49,7 +49,7 @@ CREATE TABLE styles (
   original_price numeric(12, 2) DEFAULT 0.00,
   sale_price numeric(12, 2) DEFAULT 0.00,
   is_default bit,
-  product_id int REFERENCES products(product_id),
+  product_id int REFERENCES products(product_id)
 );
 
 CREATE TABLE sizes (
