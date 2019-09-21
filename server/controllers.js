@@ -21,25 +21,33 @@ exports.getProductInfo = function (req, res) {
 exports.getStyles = function (req, res) {
   const productId = Number(req.params.product_id); // NOTE: API as is has this as a STRING!! Fix???
   const styles = { product_id: productId };
-  queries.getAllStyles(productId, (results) => {
+  queries.getAllStyles(productId, async (results) => {
     styles.results = results;
 
     const stylePromises = [];
 
     results.forEach((styleObj) => {
-      stylePromises.push(new Promise((resolve) => {
-        const styleId = styleObj.style_id;
-        queries.getPhotos(styleId, (photosList) => {
-          styleObj.photos = photosList;
+      // START PARALLEL PHOTOS AND SKUS
+      const styleId = styleObj.style_id;
+      stylePromises.push(
+        new Promise((resolvePhotos) => {
+          queries.getPhotos(styleId, (photosList) => {
+            styleObj.photos = photosList;
+            resolvePhotos();
+          })
+        }),
+        new Promise((resolveSkus) => {
           queries.getSkus(styleId, (skusObj) => {
             styleObj.skus = skusObj;
-            resolve();
+            resolveSkus();
           });
-        });
-      }));
+        })
+      )
+      // END PARALLEL PHOTOS AND SKUS
     });
 
-    Promise.all(stylePromises).then(() => res.json(styles));
+    await Promise.all(stylePromises);
+    res.json(styles);
   });
 };
 

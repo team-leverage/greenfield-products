@@ -12,6 +12,7 @@
     "knex": "^0.19.4",
     "line-by-line": "^0.1.6",
     "lorem-ipsum": "^2.0.3",
+    "newrelic": "^5.11.0",
     "node-sass": "^4.12.0",
     "pg": "^7.12.1",
     "prop-types": "^15.7.2",

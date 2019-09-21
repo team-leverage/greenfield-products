@@ -3,7 +3,7 @@ const { staging } = require('../knexfile');
 const knex = require('knex')(staging);
 
 // /////////////////Below are for /products/list
-exports.getProductList = function (num, cb) { // there's actually 2 params, look at this again later
+exports.getProductList = async function (num, cb) { // there's actually 2 params, look again later
   const productFields = [
     'product_id AS id',
     'product_name AS name',
@@ -12,27 +12,25 @@ exports.getProductList = function (num, cb) { // there's actually 2 params, look
     'category_name AS category',
     'default_price',
   ];
-  knex.select(...productFields).from('products')
-    .rightOuterJoin('categories', 'categories.category_id', 'products.category_id').limit(num)
-    .then((result) => {
-      cb(result);
-    });
+  cb(await knex.select(...productFields)
+    .from('products')
+    .rightOuterJoin('categories', 'categories.category_id', 'products.category_id')
+    .limit(num));
 };
 // /////////////////Below are for /products/:product_id
-exports.getProductFeatures = function (productId, cb) {
+exports.getProductFeatures = async function (productId, cb) {
   const featureFields = [
     'feature_name AS feature',
     'feature_value AS value',
   ];
-  knex.select(...featureFields).from('product_feature_join').where({ product_id: productId })
+  cb(await knex.select(...featureFields)
+    .from('product_feature_join')
+    .where({ product_id: productId })
     .rightOuterJoin('feature_values', 'product_feature_join.feature_value_id', 'feature_values.feature_value_id')
-    .rightOuterJoin('feature_names', 'feature_values.feature_name_id', 'feature_names.feature_name_id')
-    .then((result) => {
-      cb(result);
-    });
+    .rightOuterJoin('feature_names', 'feature_values.feature_name_id', 'feature_names.feature_name_id'));
 };
 
-exports.getProductInfo = function (productId, cb) {
+exports.getProductInfo = async function (productId, cb) {
   const productFields = [
     'product_id AS id',
     'product_name AS name',
@@ -41,14 +39,12 @@ exports.getProductInfo = function (productId, cb) {
     'category_name AS category',
     'default_price',
   ];
-  knex.select(...productFields).from('products').where({ product_id: productId })
-    .rightOuterJoin('categories', 'categories.category_id', 'products.category_id')
-    .then((result) => {
-      cb(result);
-    });
+  cb(await knex.select(...productFields).from('products')
+    .where({ product_id: productId })
+    .rightOuterJoin('categories', 'categories.category_id', 'products.category_id'));
 };
 // /////////////////Below are for /products/:product_id/styles
-exports.getAllStyles = function (productId, cb) { // this is the value for the results key
+exports.getAllStyles = async function (productId, cb) { // this is the value for the results key
   const styleFields = [
     'style_id',
     'style_name AS name',
@@ -56,72 +52,64 @@ exports.getAllStyles = function (productId, cb) { // this is the value for the r
     'sale_price',
     'is_default AS default\\?',
   ];
-  knex.select(...styleFields).from('styles').where({ product_id: productId })
-    .then((result) => {
-      cb(result);
-    });
+  cb(await knex.select(...styleFields)
+    .from('styles')
+    .where({ product_id: productId }));
 };
 
-exports.getPhotos = function (styleId, cb) { // this is the value for the photos subkey
+exports.getPhotos = async function (styleId, cb) { // this is the value for the photos subkey
   const photoFields = [
     'main_url AS url',
     'thumbnail_url',
   ];
-  knex.select(...photoFields).from('photos').where({ style_id: styleId })
-    .then((result) => {
-      cb(result);
-    });
+  cb(await knex.select(...photoFields)
+    .from('photos')
+    .where({ style_id: styleId }));
 };
 
-exports.getSkus = function (styleId, cb) {
+exports.getSkus = async function (styleId, cb) {
   const skuFields = [
     'size_name',
     'quantity',
   ];
-  knex.select(...skuFields).from('skus').where({ style_id: styleId })
-    .rightOuterJoin('sizes', 'skus.size_id', 'sizes.size_id')
-    .then((unformatResult) => unformatResult.reduce((accum, skuObj) => {
-      accum[skuObj.size_name] = skuObj.quantity;
-      return accum;
-    }, {}))
-    .then((result) => {
-      cb(result);
-    });
+
+  const unformatResult = await knex.select(...skuFields)
+    .from('skus')
+    .where({ style_id: styleId })
+    .rightOuterJoin('sizes', 'skus.size_id', 'sizes.size_id');
+  // then reformat the query output
+  cb(unformatResult.reduce((accum, skuObj) => {
+    accum[skuObj.size_name] = skuObj.quantity;
+    return accum;
+  }, {}));
 };
 // /////////////////Below are for /products/:product_id/related
-exports.getRelated = function (productId, cb) {
-  knex.select('related_product_id').from('related_products').where({ product_id: productId })
-    .then((unformatResult) => unformatResult.map((relatedObj) => relatedObj.related_product_id))
-    .then((result) => {
-      cb(result);
-    });
+exports.getRelated = async function (productId, cb) {
+  const unformatResult = await knex.select('related_product_id')
+    .from('related_products')
+    .where({ product_id: productId });
+  // then reformat the query output
+  cb(unformatResult.map((relatedObj) => relatedObj.related_product_id));
 };
 // /////////////////Below are for /cart
-exports.getCart = function (userSession, cb) {
-  knex.select('*').from('carts').where({ user_session: userSession })
-    .then((result) => {
-      cb(result);
-    });
+exports.getCart = async function (userSession, cb) {
+  cb(await knex.select('*')
+    .from('carts')
+    .where({ user_session: userSession }));
 };
 
-exports.postToCart = function (postData, cb) {
-  knex('carts').insert({
+exports.postToCart = async function (postData, cb) {
+  cb(await knex('carts').insert({
     user_session: postData.user_session,
     product_id: postData.product_id,
     active: 1,
-  })
-    .then((result) => {
-      cb(result);
-    });
+  }));
 };
 // /////////////////Below are for /interactions
-exports.postInteraction = function (postData, cb) {
-  knex('interactions').insert({
+exports.postInteraction = async function (postData, cb) {
+  cb(await knex('interactions').insert({
     element: postData.element,
     widget: postData.widget,
     time: postData.time,
-  })
-    .then((result) => {
-      cb(result);
-    });
+  }));
 };
