@@ -46,8 +46,12 @@ exports.getStyles = function (req, res) {
       // END PARALLEL PHOTOS AND SKUS
     });
 
-    await Promise.all(stylePromises);
-    res.json(styles);
+    try{
+      await Promise.all(stylePromises);
+      res.json(styles);
+    } catch (err) {
+      console.error('Threw an error at the Promise.all() in getStyles in controller.js');
+    }
   });
 };
 
