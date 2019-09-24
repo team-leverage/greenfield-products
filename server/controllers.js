@@ -34,19 +34,19 @@ exports.getStyles = function (req, res) {
           queries.getPhotos(styleId, (photosList) => {
             styleObj.photos = photosList;
             resolvePhotos();
-          })
+          });
         }),
         new Promise((resolveSkus) => {
           queries.getSkus(styleId, (skusObj) => {
             styleObj.skus = skusObj;
             resolveSkus();
           });
-        })
-      )
+        }),
+      );
       // END PARALLEL PHOTOS AND SKUS
     });
 
-    try{
+    try {
       await Promise.all(stylePromises);
       res.json(styles);
     } catch (err) {
