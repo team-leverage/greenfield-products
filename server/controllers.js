@@ -1,11 +1,22 @@
 /* eslint-disable no-param-reassign */
 const queries = require('./queries');
+const redis = require('redis');
+
+const redisClient = redis.createClient(6379);
 
 exports.getProductList = function (req, res) {
   const num = Number(req.params.num);
-  queries.getProductList(num, (data) => {
-    res.json(data);
-  });
+  const key = `/products/list/${num}`;
+  redisClient.get(key, (err, result) => {
+    if (result) { // if already in redis cache
+      res.send(JSON.parse(result));
+    } else { // if not already there and need to get from api
+      queries.getProductList(num, (data) => {
+        redisClient.set(key, JSON.stringify(data));
+        res.json(data);
+      });
+    }
+  })
 };
 
 exports.getProductInfo = function (req, res) {
