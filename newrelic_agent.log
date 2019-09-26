@@ -1647,3 +1647,474 @@
 {"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":3399,"time":"2019-09-21T22:49:12.139Z","msg":"Agent state changed from connected to started."}
 {"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":3399,"time":"2019-09-21T22:49:13.140Z","msg":"Harvest started."}
 {"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":3399,"time":"2019-09-21T22:49:13.255Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:33:01.272Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.3."}
+{"v":0,"level":40,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:33:01.497Z","msg":"The newrelic module must be the first module required.\nThe following modules were required before newrelic and are not being instrumented:\n\texpress: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/index.js\n\tq: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/node_modules/qs/lib/index.js"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:33:01.498Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:33:01.723Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:33:01.723Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:33:03.534Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:33:03.535Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID BfpAe7fTFdO3ACXYZhY_yHNdiUiUAAgBAAAnIQEAAFUvAgQWP8hxAwAGNS4xMS4wAAxoYW5qYXNsYXB0b3AACkdyZWVuZmllbGQ.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:33:03.536Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2480230/applications/373278833","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:33:03.559Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:33:04.562Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:33:04.710Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:34:04.562Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:34:04.725Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:35:04.563Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:35:04.718Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:36:04.565Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:36:04.652Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:37:04.565Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:37:04.674Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:38:04.565Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:38:04.683Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:39:04.566Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:39:04.686Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:40:04.568Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:40:04.649Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:41:04.569Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:41:04.690Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:42:04.571Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:42:04.687Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:43:04.571Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:43:04.690Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:44:04.571Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:44:04.702Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:45:04.571Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:45:04.678Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:46:04.574Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:46:04.704Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:47:04.577Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:47:04.726Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:48:04.579Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:48:04.698Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:49:04.579Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:49:04.692Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:50:04.581Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:50:04.720Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:51:04.582Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:51:04.693Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:52:04.583Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:52:04.697Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:53:04.585Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:53:04.710Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:54:04.585Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:54:04.709Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:55:04.588Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:55:04.712Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:56:04.588Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:56:04.716Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:57:04.590Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:57:04.712Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:58:04.591Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:58:04.723Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:59:04.593Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T22:59:04.720Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:00:04.594Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:00:04.684Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:01:04.595Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:01:04.703Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:02:04.597Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:02:04.713Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:03:04.599Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:03:04.730Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:04:04.601Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:04:04.750Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:05:04.603Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:05:04.731Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:06:04.606Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:06:04.726Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:07:04.607Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:07:04.727Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:08:04.609Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:08:04.729Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:09:04.610Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:09:04.703Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:10:04.612Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:10:04.737Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:11:04.613Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:11:04.733Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:12:04.615Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:12:04.754Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:13:04.615Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:13:04.700Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:14:04.617Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:14:04.726Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:15:04.617Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:15:04.739Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:16:04.619Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:16:04.732Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:17:04.619Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:17:04.749Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:18:04.621Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:18:04.744Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:19:04.622Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:19:04.748Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:20:04.623Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:20:04.709Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:21:04.625Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:21:04.751Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:22:04.628Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:22:04.739Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:23:04.628Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:23:04.749Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:24:04.630Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:24:04.763Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:25:04.630Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:25:04.747Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:26:04.632Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:26:04.751Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:27:04.633Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:27:04.744Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:28:04.635Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:28:04.746Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:29:04.635Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:29:04.762Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:30:04.637Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:30:04.722Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:31:04.638Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:31:04.760Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:32:04.639Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:32:04.762Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:33:04.641Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:33:04.757Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:34:04.642Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:34:04.764Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:35:04.644Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:35:04.751Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:36:04.644Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:36:04.765Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:37:04.645Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:37:04.762Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:38:04.647Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:38:04.750Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:39:04.648Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:39:04.784Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:40:04.649Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:40:04.763Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:41:04.651Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:41:04.734Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:42:04.653Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:42:04.782Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:43:04.654Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:43:04.755Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:44:04.656Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:44:04.797Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:45:04.656Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:45:04.773Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:46:04.658Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:46:04.781Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:47:04.660Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:47:04.774Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:48:04.661Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:48:04.793Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:49:04.662Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:49:04.803Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:50:04.664Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:50:04.777Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:51:04.665Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":21807,"time":"2019-09-23T23:51:04.778Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2063,"time":"2019-09-23T23:51:51.341Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.3."}
+{"v":0,"level":40,"name":"newrelic","hostname":"hanjaslaptop","pid":2063,"time":"2019-09-23T23:51:51.479Z","msg":"The newrelic module must be the first module required.\nThe following modules were required before newrelic and are not being instrumented:\n\texpress: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/index.js\n\tq: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/node_modules/qs/lib/index.js"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2063,"time":"2019-09-23T23:51:51.479Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2063,"time":"2019-09-23T23:51:51.616Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2063,"time":"2019-09-23T23:51:51.617Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2063,"time":"2019-09-23T23:51:53.200Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2063,"time":"2019-09-23T23:51:53.201Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID BR6-8YitFz8BACXYZhY_yHNdiVrcAAgBAAAnIQEAAAgPAgQWP8hxAwAGNS4xMS4wAAxoYW5qYXNsYXB0b3AACkdyZWVuZmllbGQ.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2063,"time":"2019-09-23T23:51:53.201Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2480230/applications/373278833","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2063,"time":"2019-09-23T23:51:53.212Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2063,"time":"2019-09-23T23:51:54.214Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2063,"time":"2019-09-23T23:51:54.349Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2063,"time":"2019-09-23T23:52:54.216Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2063,"time":"2019-09-23T23:52:54.371Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:53:03.540Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.3."}
+{"v":0,"level":40,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:53:03.665Z","msg":"The newrelic module must be the first module required.\nThe following modules were required before newrelic and are not being instrumented:\n\texpress: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/index.js\n\tq: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/node_modules/qs/lib/index.js"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:53:03.666Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:53:03.797Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:53:03.797Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:53:05.400Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:53:05.402Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID BdSb5rKq9ylyACXYZhY_yHNdiVtUAAgBAAAnIQEAAAmUAgQWP8hxAwAGNS4xMS4wAAxoYW5qYXNsYXB0b3AACkdyZWVuZmllbGQ.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:53:05.402Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2480230/applications/373278833","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:53:05.442Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:53:06.443Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:53:06.626Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:54:06.445Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:54:06.550Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:55:06.446Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:55:06.560Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:56:06.447Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:56:06.559Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:57:06.447Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:57:06.559Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:58:06.453Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:58:06.582Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:59:06.455Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-23T23:59:06.567Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:00:06.456Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:00:06.615Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:01:06.459Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:01:06.579Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:02:06.460Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:02:06.590Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:03:06.462Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:03:06.594Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:04:06.464Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:04:06.596Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:05:06.465Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:05:06.589Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:06:06.469Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:06:06.611Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:07:06.475Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:07:06.593Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:08:06.476Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:08:06.579Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:09:06.477Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:09:06.595Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:10:06.479Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:10:06.598Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:11:06.480Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:11:06.592Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:12:06.480Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:12:06.596Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:13:06.483Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:13:06.605Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:14:06.485Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:14:06.609Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:15:06.486Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:15:06.606Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:16:06.487Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:16:06.615Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:17:06.489Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:17:06.613Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:18:06.490Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:18:06.614Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:19:06.491Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:19:06.576Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:20:06.492Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:20:06.615Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:21:06.492Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:21:06.613Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:22:06.493Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:22:06.612Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:23:06.495Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:23:06.627Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:24:06.496Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:24:06.606Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:25:06.497Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:25:06.627Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:26:06.500Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:26:06.615Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:27:06.501Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:27:06.620Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:28:06.502Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:28:06.587Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:29:06.505Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:29:06.623Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:30:06.506Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:30:06.619Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:31:06.506Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:31:06.621Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:32:06.509Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:32:06.638Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:33:06.511Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:33:06.646Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:34:06.512Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:34:06.631Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:35:06.512Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:35:06.628Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:36:06.512Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:36:06.632Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:37:06.513Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:37:06.632Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:38:06.513Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:38:06.638Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:39:06.514Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:39:06.633Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:40:06.514Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:40:06.654Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:41:06.514Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:41:06.619Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:42:06.514Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:42:06.652Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:43:06.516Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:43:06.657Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:44:06.518Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:44:06.629Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:45:06.520Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:45:06.628Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:46:06.521Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:46:06.628Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:47:06.522Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:47:06.599Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:48:06.523Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:48:06.665Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:49:06.523Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:49:06.629Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:50:06.524Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:50:06.628Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:51:06.526Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:51:06.640Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:52:06.528Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:52:06.638Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:53:06.528Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:53:06.630Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:54:06.528Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:54:06.672Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:55:06.528Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:55:06.640Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:56:06.529Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:56:06.663Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:57:06.530Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:57:06.656Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:58:06.530Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:58:06.636Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:59:06.532Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T00:59:06.654Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:00:06.533Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:00:06.655Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:01:06.535Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:01:06.657Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:02:06.537Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:02:06.660Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:03:06.539Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:03:06.622Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:04:06.540Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:04:06.656Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:05:06.541Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:05:06.621Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:06:06.543Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:06:06.645Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:07:06.544Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:07:06.661Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:08:06.545Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:08:06.655Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:09:06.546Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:09:06.668Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:10:06.547Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:10:06.642Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:11:06.549Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:11:06.661Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:12:06.551Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:12:06.640Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:13:06.552Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:13:06.666Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:14:06.552Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:14:06.665Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:15:06.552Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:15:06.660Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:16:06.552Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:16:06.658Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:17:06.556Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:17:06.664Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:18:06.556Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:18:06.673Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:19:06.556Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:19:06.639Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:20:06.557Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:20:06.665Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:21:06.557Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:21:06.646Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:22:06.559Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:22:06.680Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:23:06.560Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:23:06.668Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:24:06.561Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:24:06.671Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:25:06.561Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:25:06.665Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:26:06.562Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:26:06.703Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:27:06.562Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:27:06.681Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:28:06.563Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:28:06.674Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:29:06.564Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:29:06.687Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:30:06.564Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":2452,"time":"2019-09-24T01:30:06.679Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:09:02.827Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.3."}
+{"v":0,"level":40,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:09:02.928Z","msg":"The newrelic module must be the first module required.\nThe following modules were required before newrelic and are not being instrumented:\n\texpress: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/index.js\n\tq: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/node_modules/qs/lib/index.js"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:09:02.928Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:09:03.025Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:09:03.025Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:09:04.558Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:09:04.559Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID BZWgDPH9QKr5ACXYZhY_yHNdjBAkAAgBAAAnIQEAAC4oAgQWP8hxAwAGNS4xMS4wAAxoYW5qYXNsYXB0b3AACkdyZWVuZmllbGQ.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:09:04.559Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2480230/applications/373278833","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:09:04.577Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:09:05.580Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:09:05.708Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:10:05.581Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:10:05.729Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:11:05.582Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:11:05.708Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:12:05.583Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:12:05.704Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:13:05.584Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:13:05.698Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:14:05.585Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:14:05.718Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:15:05.586Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:15:05.734Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:16:05.587Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:16:05.703Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:17:05.588Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":11816,"time":"2019-09-26T01:17:05.719Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:17:37.160Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.3."}
+{"v":0,"level":40,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:17:37.275Z","msg":"The newrelic module must be the first module required.\nThe following modules were required before newrelic and are not being instrumented:\n\texpress: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/index.js\n\tq: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/node_modules/qs/lib/index.js"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:17:37.275Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:17:37.383Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:17:37.383Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:17:38.926Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:17:38.927Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID BZru2wDKjvX_ACXYZhY_yHNdjBIEAAgBAAAnIQEAADQ6AgQWP8hxAwAGNS4xMS4wAAxoYW5qYXNsYXB0b3AACkdyZWVuZmllbGQ.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:17:38.927Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2480230/applications/373278833","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:17:38.954Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:17:39.957Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:17:40.088Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:18:39.958Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:18:40.117Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:19:39.959Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:19:40.190Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:20:39.959Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":13370,"time":"2019-09-26T01:20:40.071Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14111,"time":"2019-09-26T01:21:11.183Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.3."}
+{"v":0,"level":40,"name":"newrelic","hostname":"hanjaslaptop","pid":14111,"time":"2019-09-26T01:21:11.287Z","msg":"The newrelic module must be the first module required.\nThe following modules were required before newrelic and are not being instrumented:\n\texpress: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/index.js\n\tq: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/node_modules/qs/lib/index.js"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14111,"time":"2019-09-26T01:21:11.287Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14111,"time":"2019-09-26T01:21:11.389Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14111,"time":"2019-09-26T01:21:11.389Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14111,"time":"2019-09-26T01:21:12.910Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14111,"time":"2019-09-26T01:21:12.911Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID BRTYNrT0Lq1WACXYZhY_yHNdjBL0AAgBAAAnIQEAADcfAgQWP8hxAwAGNS4xMS4wAAxoYW5qYXNsYXB0b3AACkdyZWVuZmllbGQ.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14111,"time":"2019-09-26T01:21:12.911Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2480230/applications/373278833","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14111,"time":"2019-09-26T01:21:12.940Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14111,"time":"2019-09-26T01:21:13.942Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14111,"time":"2019-09-26T01:21:14.068Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14228,"time":"2019-09-26T01:21:45.501Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.3."}
+{"v":0,"level":40,"name":"newrelic","hostname":"hanjaslaptop","pid":14228,"time":"2019-09-26T01:21:45.610Z","msg":"The newrelic module must be the first module required.\nThe following modules were required before newrelic and are not being instrumented:\n\texpress: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/index.js\n\tq: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/node_modules/qs/lib/index.js"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14228,"time":"2019-09-26T01:21:45.610Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14228,"time":"2019-09-26T01:21:45.715Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14228,"time":"2019-09-26T01:21:45.715Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14228,"time":"2019-09-26T01:21:47.280Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14228,"time":"2019-09-26T01:21:47.280Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID BfrGbvLQJkZ6ACXYZhY_yHNdjBL0AAgBAAAnIQEAADeUAgQWP8hxAwAGNS4xMS4wAAxoYW5qYXNsYXB0b3AACkdyZWVuZmllbGQ.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14228,"time":"2019-09-26T01:21:47.281Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2480230/applications/373278833","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14228,"time":"2019-09-26T01:21:47.291Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14228,"time":"2019-09-26T01:21:48.295Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14228,"time":"2019-09-26T01:21:48.442Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14340,"time":"2019-09-26T01:22:30.039Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.3."}
+{"v":0,"level":40,"name":"newrelic","hostname":"hanjaslaptop","pid":14340,"time":"2019-09-26T01:22:30.242Z","msg":"The newrelic module must be the first module required.\nThe following modules were required before newrelic and are not being instrumented:\n\texpress: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/index.js\n\tq: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/node_modules/qs/lib/index.js"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14340,"time":"2019-09-26T01:22:30.242Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14340,"time":"2019-09-26T01:22:30.447Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14340,"time":"2019-09-26T01:22:30.447Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14340,"time":"2019-09-26T01:22:32.177Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14340,"time":"2019-09-26T01:22:32.177Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID BdDhDz3aVs1NACXYZhY_yHNdjBMwAAgBAAAnIQEAADgEAgQWP8hxAwAGNS4xMS4wAAxoYW5qYXNsYXB0b3AACkdyZWVuZmllbGQ.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14340,"time":"2019-09-26T01:22:32.177Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2480230/applications/373278833","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14340,"time":"2019-09-26T01:22:32.194Z","msg":"Agent state changed from connected to started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14340,"time":"2019-09-26T01:22:33.195Z","msg":"Harvest started."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14340,"time":"2019-09-26T01:22:33.301Z","msg":"Harvest finished."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14416,"time":"2019-09-26T01:22:53.413Z","msg":"Using New Relic for Node.js. Agent version: 5.11.0; Node version: v10.16.3."}
+{"v":0,"level":40,"name":"newrelic","hostname":"hanjaslaptop","pid":14416,"time":"2019-09-26T01:22:53.522Z","msg":"The newrelic module must be the first module required.\nThe following modules were required before newrelic and are not being instrumented:\n\texpress: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/index.js\n\tq: /home/han/Dropbox/Programming/Galvanize/SDC/project-greenfield/node_modules/express/node_modules/qs/lib/index.js"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14416,"time":"2019-09-26T01:22:53.522Z","msg":"Agent state changed from stopped to starting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14416,"time":"2019-09-26T01:22:53.628Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14416,"time":"2019-09-26T01:22:53.628Z","msg":"Agent state changed from starting to connecting."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14416,"time":"2019-09-26T01:22:55.121Z","msg":"Agent state changed from connecting to connected."}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14416,"time":"2019-09-26T01:22:55.122Z","msg":"Connected to collector-006.newrelic.com:443 with agent run ID BSWw5eKtY017ACXYZhY_yHNdjBMwAAgBAAAnIQEAADhQAgQWP8hxAwAGNS4xMS4wAAxoYW5qYXNsYXB0b3AACkdyZWVuZmllbGQ.","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14416,"time":"2019-09-26T01:22:55.122Z","msg":"Reporting to: https://rpm.newrelic.com/accounts/2480230/applications/373278833","component":"collector_api"}
+{"v":0,"level":30,"name":"newrelic","hostname":"hanjaslaptop","pid":14416,"time":"2019-09-26T01:22:55.131Z","msg":"Agent state changed from connected to started."}

@@ -11,6 +11,9 @@
 # testing
 /coverage
 
+# newrelic log
+newrelic_agent.log
+
 # production
 /build
 

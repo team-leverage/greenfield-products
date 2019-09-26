@@ -24,6 +24,7 @@
     "react-slick": "^0.25.2",
     "react-test-renderer": "^16.9.0",
     "read-line-file": "^1.0.6",
+    "redis": "^2.8.0",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
