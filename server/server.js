@@ -15,6 +15,24 @@ const {
   postInteraction,
 } = require('./controllers');
 
+const redis = require('redis');
+const redisClient = redis.createClient(6379);
+
+function redisify (key, queryFunction) {
+  const redisVersion = function (req, res) {
+    redisClient.get(key, (err, result) => {
+      if (result) {
+        res.send(JSON.parse(result));
+      } else {
+        queryFunction(req, res, (data) => {
+          redisClient.set(key, JSON.stringify(data));
+        })
+      }
+    });
+  }
+  return redisVersion;
+}
+
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());

@@ -1,35 +1,49 @@
 /* eslint-disable no-param-reassign */
 const queries = require('./queries');
 const redis = require('redis');
-
 const redisClient = redis.createClient(6379);
 
-exports.getProductList = function (req, res) {
+function redisify (keyMakerFunction, queryFunction) {
+  const redisVersion = function (req, res) {
+    const key = keyMakerFunction(req);
+    redisClient.get(key, (err, result) => {
+      if (result) {
+        res.send(JSON.parse(result));
+      } else {
+        queryFunction(req, res, (data) => {
+          redisClient.set(key, JSON.stringify(data));
+        })
+      }
+    });
+  }
+  return redisVersion;
+}
+
+const getProductListNonRedis = function (req, res, cb = () => {}) {
   const num = Number(req.params.num);
-  const key = `/products/list/${num}`;
-  redisClient.get(key, (err, result) => {
-    if (result) { // if already in redis cache
-      res.send(JSON.parse(result));
-    } else { // if not already there and need to get from api
-      queries.getProductList(num, (data) => {
-        redisClient.set(key, JSON.stringify(data));
-        res.json(data);
-      });
-    }
-  })
+  queries.getProductList(num, (data) => {
+    res.json(data);
+    cb(data);
+  });
 };
 
-exports.getProductInfo = function (req, res) {
+exports.getProductList = redisify (
+  (req) => `/products/list/${req.params.num}`,
+  getProductListNonRedis
+);
+
+exports.getProductInfo = function (req, res, cb = () => {}) {
   const productId = Number(req.params.product_id);
   queries.getProductInfo(productId, (productInfoData) => {
     queries.getProductFeatures(productId, (featuresObj) => {
       productInfoData[0].features = featuresObj;
       res.json(productInfoData[0]);
+      cb(productInfoData[0]);
     });
   });
 };
 
-exports.getStyles = function (req, res) {
+const getStylesNonRedis = function (req, res, cb = () => {}) {
   const productId = Number(req.params.product_id); // NOTE: API as is has this as a STRING!! Fix???
   const styles = { product_id: productId };
   queries.getAllStyles(productId, async (results) => {
@@ -60,37 +74,46 @@ exports.getStyles = function (req, res) {
     try {
       await Promise.all(stylePromises);
       res.json(styles);
+      cb(styles);
     } catch (err) {
       console.error('Threw an error at the Promise.all() in getStyles in controller.js');
     }
   });
 };
 
-exports.getRelated = function (req, res) {
+exports.getStyles = redisify (
+  (req) => `/products/${req.params.product_id}/styles`,
+  getStylesNonRedis
+);
+
+exports.getRelated = function (req, res, cb = () => {}) {
   const productId = Number(req.params.product_id);
   queries.getRelated(productId, (data) => {
     res.json(data);
+    cb(data);
   });
 };
 
-exports.getCart = function (req, res) {
+exports.getCart = function (req, res, cb = () => {}) {
   const userSession = Number(req.params.user_session);
   queries.getCart(userSession, (data) => {
     res.json(data);
+    cb(data);
   });
 };
 
-exports.postToCart = function (req, res) {
+exports.postToCart = function (req, res, cb = () => {}) {
   const postData = {
     user_session: req.body.user_session,
     product_id: req.body.product_id,
   };
   queries.postToCart(postData, (data) => {
     res.json(data);
+    cb(data);
   });
 };
 
-exports.postInteraction = function (req, res) {
+exports.postInteraction = function (req, res, cb = () => {}) {
   const postData = {
     element: req.body.element,
     widget: req.body.widget,
@@ -98,5 +121,6 @@ exports.postInteraction = function (req, res) {
   };
   queries.postInteraction(postData, (data) => {
     res.json(data);
+    cb(data);
   });
 };
