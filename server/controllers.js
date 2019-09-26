@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
-const queries = require('./queries');
 const redis = require('redis');
+const queries = require('./queries');
+
 const redisClient = redis.createClient(6379);
 
 function redisify(keyMakerFunction, queryFunction) {
@@ -12,10 +13,10 @@ function redisify(keyMakerFunction, queryFunction) {
       } else {
         queryFunction(req, res, (data) => {
           redisClient.set(key, JSON.stringify(data));
-        })
+        });
       }
     });
-  }
+  };
   return redisVersion;
 }
 
@@ -92,31 +93,31 @@ const getCartNonRedis = function (req, res, cb = () => {}) {
   });
 };
 
-///////////////////////////////Exported functions below/////////////////////////////////////////
+// /////////////////////////////Exported functions below/////////////////////////////////////////
 
 exports.getProductList = redisify(
   (req) => `/products/list/${req.params.num}`,
-  getProductListNonRedis
+  getProductListNonRedis,
 );
 
 exports.getProductInfo = redisify(
   (req) => `products/${req.params.product_id}`,
-  getProductInfoNonRedis
+  getProductInfoNonRedis,
 );
 
 exports.getStyles = redisify(
   (req) => `/products/${req.params.product_id}/styles`,
-  getStylesNonRedis
+  getStylesNonRedis,
 );
 
 exports.getRelated = redisify(
   (req) => `/products/${req.params.product_id}/related`,
-  getRelatedNonRedis
+  getRelatedNonRedis,
 );
 
 exports.getCart = redisify(
   (req) => `/cart/${req.params.user_session}`,
-  getCartNonRedis
+  getCartNonRedis,
 );
 
 exports.postToCart = function (req, res, cb = () => {}) {
