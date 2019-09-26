@@ -8,12 +8,10 @@ function redisify(keyMakerFunction, queryFunction) {
     const key = keyMakerFunction(req);
     redisClient.get(key, (err, result) => {
       if (result) {
-        console.log('Found from cache!');
         res.send(JSON.parse(result));
       } else {
         queryFunction(req, res, (data) => {
           redisClient.set(key, JSON.stringify(data));
-          console.log('Cannot find from cache, called API');
         })
       }
     });
