@@ -3,15 +3,17 @@ const queries = require('./queries');
 const redis = require('redis');
 const redisClient = redis.createClient(6379);
 
-function redisify (keyMakerFunction, queryFunction) {
+function redisify(keyMakerFunction, queryFunction) {
   const redisVersion = function (req, res) {
     const key = keyMakerFunction(req);
     redisClient.get(key, (err, result) => {
       if (result) {
+        console.log('Found from cache!');
         res.send(JSON.parse(result));
       } else {
         queryFunction(req, res, (data) => {
           redisClient.set(key, JSON.stringify(data));
+          console.log('Cannot find from cache, called API');
         })
       }
     });
@@ -27,12 +29,7 @@ const getProductListNonRedis = function (req, res, cb = () => {}) {
   });
 };
 
-exports.getProductList = redisify (
-  (req) => `/products/list/${req.params.num}`,
-  getProductListNonRedis
-);
-
-exports.getProductInfo = function (req, res, cb = () => {}) {
+const getProductInfoNonRedis = function (req, res, cb = () => {}) {
   const productId = Number(req.params.product_id);
   queries.getProductInfo(productId, (productInfoData) => {
     queries.getProductFeatures(productId, (featuresObj) => {
@@ -81,12 +78,7 @@ const getStylesNonRedis = function (req, res, cb = () => {}) {
   });
 };
 
-exports.getStyles = redisify (
-  (req) => `/products/${req.params.product_id}/styles`,
-  getStylesNonRedis
-);
-
-exports.getRelated = function (req, res, cb = () => {}) {
+const getRelatedNonRedis = function (req, res, cb = () => {}) {
   const productId = Number(req.params.product_id);
   queries.getRelated(productId, (data) => {
     res.json(data);
@@ -94,13 +86,40 @@ exports.getRelated = function (req, res, cb = () => {}) {
   });
 };
 
-exports.getCart = function (req, res, cb = () => {}) {
+const getCartNonRedis = function (req, res, cb = () => {}) {
   const userSession = Number(req.params.user_session);
   queries.getCart(userSession, (data) => {
     res.json(data);
     cb(data);
   });
 };
+
+///////////////////////////////Exported functions below/////////////////////////////////////////
+
+exports.getProductList = redisify(
+  (req) => `/products/list/${req.params.num}`,
+  getProductListNonRedis
+);
+
+exports.getProductInfo = redisify(
+  (req) => `products/${req.params.product_id}`,
+  getProductInfoNonRedis
+);
+
+exports.getStyles = redisify(
+  (req) => `/products/${req.params.product_id}/styles`,
+  getStylesNonRedis
+);
+
+exports.getRelated = redisify(
+  (req) => `/products/${req.params.product_id}/related`,
+  getRelatedNonRedis
+);
+
+exports.getCart = redisify(
+  (req) => `/cart/${req.params.user_session}`,
+  getCartNonRedis
+);
 
 exports.postToCart = function (req, res, cb = () => {}) {
   const postData = {
