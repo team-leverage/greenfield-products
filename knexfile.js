@@ -1,4 +1,5 @@
 // Update with your config settings.
+const serverUrl = 'localhost';
 
 module.exports = {
 
@@ -6,7 +7,7 @@ module.exports = {
     client: 'pg',
     // connection: 'postgres://localhost/greenfield',
     connection: {
-      host: 'localhost',
+      host: serverUrl,
       database: 'greenfield',
       user: 'han',
       password: 'face468a',
@@ -28,7 +29,7 @@ module.exports = {
     client: 'pg',
     // connection: 'postgres://localhost/greenfield',
     connection: {
-      host: 'localhost',
+      host: serverUrl,
       database: 'greenfield',
       user: 'han',
       password: 'face468a',
@@ -46,7 +47,7 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      host: 'localhost',
+      host: serverUrl,
       database: 'greenfield',
       user: 'han',
       password: 'face468a',
