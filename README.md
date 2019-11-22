@@ -4,6 +4,8 @@
 ## Description
 Project Greenfield is an MVP of a clothing retail application. Features implemented were constrained to the client experience which includes: searching, browsing, zooming images, adding items to the cart, ratings, reviews, and product related Q&A.
 
+![Page Functionality](/src/images/greenfield.gif)
+
 ## Installation
 
 Installation is unavailable at this time to preserve server privacy.  API authentication has not been implemented at this time.
