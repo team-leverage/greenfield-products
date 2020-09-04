@@ -13,7 +13,7 @@
     "line-by-line": "^0.1.6",
     "lorem-ipsum": "^2.0.3",
     "newrelic": "^5.11.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "pg": "^7.12.1",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
